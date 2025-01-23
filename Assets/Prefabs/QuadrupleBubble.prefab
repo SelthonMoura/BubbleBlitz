@@ -36,17 +36,25 @@ PrefabInstance:
       propertyPath: _childBubbles.Array.data[1].initialVelocity.x
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3589572707829757268, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8c44ea1dc4ba21f4c87db2d21c251413, type: 2}
     - target: {fileID: 7564508106564703081, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: m_Name
       value: QuadrupleBubble
       objectReference: {fileID: 0}
     - target: {fileID: 8065529099098440237, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8065529099098440237, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8065529099098440237, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8065529099098440237, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: m_LocalPosition.x
@@ -86,6 +94,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8065529099098440237, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8065529099098440237, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

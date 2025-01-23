@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5736240447737190107}
   - component: {fileID: 4227620171221754192}
   - component: {fileID: 53421584036821223}
+  - component: {fileID: 1484566701758709050}
   - component: {fileID: 3253381340994722178}
-  - component: {fileID: 6327036061102187249}
-  - component: {fileID: -4894512357746565565}
+  - component: {fileID: -2538987888798667992}
   m_Layer: 0
   m_Name: PlayerProjectile
   m_TagString: Untagged
@@ -101,9 +101,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 3253381340994722178}
-  castRadius: 0.5
+  castRadius: 0.1
   removeBullet:
     event: {fileID: 11400000, guid: 5fb7d699da3feeb4dbaf9460ed01ccff, type: 2}
+  bulletHit: {fileID: 11400000, guid: 3586ce0e65f99fb458cca591cd2a08ad, type: 2}
+  lineRenderer: {fileID: -2538987888798667992}
+--- !u!114 &1484566701758709050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6205592621966441909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6320fd3e36a48e4a89ed656f099d054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bullet: {fileID: 53421584036821223}
+  _lineRenderer: {fileID: -2538987888798667992}
   bulletHit: {fileID: 11400000, guid: 3586ce0e65f99fb458cca591cd2a08ad, type: 2}
 --- !u!50 &3253381340994722178
 Rigidbody2D:
@@ -132,22 +148,9 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6327036061102187249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6205592621966441909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ec18c44656c90248a9de86659e37c5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _trail: {fileID: -4894512357746565565}
---- !u!96 &-4894512357746565565
-TrailRenderer:
-  serializedVersion: 3
+--- !u!120 &-2538987888798667992
+LineRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -187,8 +190,9 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
-  m_PreviewTimeScale: 1
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.2
@@ -244,8 +248,7 @@ TrailRenderer:
     textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 0.1
   m_MaskInteraction: 0
-  m_Autodestruct: 0
-  m_Emitting: 1
+  m_UseWorldSpace: 1
+  m_Loop: 0
   m_ApplyActiveColorSpace: 1

@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 1894783715779244302}
   - component: {fileID: 1520305916603968079}
   - component: {fileID: 6622969535098795713}
+  - component: {fileID: 1279181157907079182}
   m_Layer: 0
   m_Name: Bubble
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.8, y: 2.3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -55,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 04e93ba86faf70842972d4b99caa3269, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 26e4fc74a16c9144c8cf1291db73d6cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a51d20d0c59fe9e4da0dd9c10f5d1f4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 1279181157907079182}
   _childBubbles: []
   _bounceHeight: 5
   _gravity: -9.81
@@ -106,6 +108,8 @@ MonoBehaviour:
   bulletHit:
     event: {fileID: 11400000, guid: 3586ce0e65f99fb458cca591cd2a08ad, type: 2}
   _removeBullet: {fileID: 11400000, guid: 5fb7d699da3feeb4dbaf9460ed01ccff, type: 2}
+  _bubbleSpawn: {fileID: 11400000, guid: d181e6eb376aa6f4fa18f074077db3bf, type: 2}
+  _bubbleDeath: {fileID: 11400000, guid: a9d568ff5a88fb242a22024cd4d38b23, type: 2}
 --- !u!58 &1520305916603968079
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -140,7 +144,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.225
 --- !u!50 &6622969535098795713
 Rigidbody2D:
   serializedVersion: 4
@@ -168,3 +172,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &1279181157907079182
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7564508106564703081}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e6b3717a455822d418947abd22a53657, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

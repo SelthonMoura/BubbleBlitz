@@ -18,6 +18,17 @@ public class GameEventListener<T> : GameEventListener where T : CustomEvent, new
     public GameEvent @event;
     public T customEvent;
 
+    public void AddListener(Action method)
+    {
+        customEvent ??= new T();
+
+        if (customEvent is CustomEvent cE)
+        {
+            cE.response.AddListener(new UnityAction(method));
+        }
+        @event.RegisterListener(this);
+    }
+
     public void AddListener<U>(Action<U> method)
     {
         customEvent ??= new T();
@@ -49,6 +60,19 @@ public class GameEventListener<T> : GameEventListener where T : CustomEvent, new
             cE.response.AddListener(new UnityAction<U, V, W>(method));
         }
         @event.RegisterListener(this);
+    }
+
+    public void RemoveListener(Action method)
+    {
+        if (customEvent == null)
+        {
+            customEvent = new T();
+        }
+        if (customEvent is CustomEvent cE)
+        {
+            cE.response.RemoveListener(new UnityAction(method));
+        }
+        @event.UnRegisterListener(this);
     }
 
     public void RemoveListener<U>(Action<U> method)

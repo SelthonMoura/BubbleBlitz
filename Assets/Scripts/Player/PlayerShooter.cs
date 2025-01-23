@@ -11,7 +11,7 @@ public class PlayerShooter : MonoBehaviour
 
     private void Update()
     {
-        AimAtMouse();
+        //AimAtMouse();
         if (_cooldown > 0)
             _cooldown -= Time.deltaTime;
         else if (Input.GetMouseButton(0))
@@ -44,6 +44,7 @@ public class PlayerShooter : MonoBehaviour
             var rotationShift = startingAngle + i * arrayAngle;
             var rotation = transform.rotation * Quaternion.AngleAxis(rotationShift, Vector3.forward);
             var bullet = (Bullet)PoolManager.Instance.ReuseComponent(_bulletPrefab, transform.position, rotation);
+            bullet.LineTarget = transform;
             if(!_bullets.Contains(bullet))
                 _bullets.Add(bullet);
             bullet.gameObject.SetActive(true);

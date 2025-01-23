@@ -26,12 +26,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 436195982926343580}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -8.7188, y: -5.85, z: 0}
   m_LocalScale: {x: 1.4823, y: 4.2801456, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8791901874232022077}
+  m_Father: {fileID: 4725601581952241765}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5211937015653673857
 SpriteRenderer:
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0.98846316, b: 0, a: 1}
   m_FlipX: 0
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 6963288873259988220}
   - component: {fileID: 8612446855770776537}
   - component: {fileID: 2981851385490152269}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Walls
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8791901874232022077}
+  m_Father: {fileID: 4725601581952241765}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &3252338967403592024
 Tilemap:
@@ -1299,6 +1299,40 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &5677137737252799087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4725601581952241765}
+  m_Layer: 0
+  m_Name: Level1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4725601581952241765
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5677137737252799087}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5422436634620330190}
+  - {fileID: 5932138665103664731}
+  - {fileID: 4887504155822532805}
+  m_Father: {fileID: 8791901874232022077}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7212380590136646095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1326,12 +1360,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7212380590136646095}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -8.7188, y: -4.01, z: 0}
   m_LocalScale: {x: 10, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8791901874232022077}
+  m_Father: {fileID: 4725601581952241765}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3345298307270315317
 SpriteRenderer:
@@ -1459,6 +1493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8791901874232022077}
   - component: {fileID: 3027648763926561993}
+  - component: {fileID: 8705821824507749565}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -1479,9 +1514,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5422436634620330190}
-  - {fileID: 5932138665103664731}
-  - {fileID: 4887504155822532805}
+  - {fileID: 4725601581952241765}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!156049354 &3027648763926561993
@@ -1496,3 +1529,20 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &8705821824507749565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8084383295047969074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 877429db19d2a9649971db60563f9bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levels: []
+  _bubbleSpawnEvent:
+    event: {fileID: 11400000, guid: d181e6eb376aa6f4fa18f074077db3bf, type: 2}
+  _bubbleDeathEvent:
+    event: {fileID: 11400000, guid: a9d568ff5a88fb242a22024cd4d38b23, type: 2}

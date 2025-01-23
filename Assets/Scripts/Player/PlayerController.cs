@@ -31,7 +31,8 @@ public class PlayerController : MonoBehaviour
                 _spriteRenderer.flipX = true;
             else if (inputVector.x > 0)
                 _spriteRenderer.flipX = false;
-            _rb.velocity = new Vector2(inputVector.x * _speed, _rb.velocity.y);
+            if(Physics2D.Raycast(transform.position, inputVector, 0.8f, 7))
+                _rb.velocity = new Vector2(inputVector.x * _speed, _rb.velocity.y);
         }
         else
         {

@@ -7,13 +7,18 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float castRadius;
     [SerializeField] private GameEventListener<CustomEvent<object>> removeBullet;
     [SerializeField] private GameEvent bulletHit;
+    [SerializeField] private LineRenderer lineRenderer;
+    private Transform lineTarget;
     private int _pierced;
     private WeaponStats _weaponStats;
     private Transform _lastObjectHit;
     private bool _collided;
 
-    private void Start()
+    public Transform LineTarget { get => lineTarget; set => lineTarget = value; }
+
+    private void Awake()
     {
+        LineTarget = transform;
         removeBullet.AddListener<object>(DestroyBullet);
     }
 
@@ -22,9 +27,16 @@ public class Bullet : MonoBehaviour
         removeBullet.RemoveListener<object>(DestroyBullet);
     }
 
+    private void OnEnable()
+    {
+        lineRenderer.SetPosition(0, transform.position);
+        lineRenderer.SetPosition(1, LineTarget.position);
+    }
+
     private void OnBecameInvisible()
     {
-        DestroyBullet(this);
+        _lastObjectHit = null;
+        gameObject.SetActive(false);
     }
 
     private void DestroyBullet(object bullet)
@@ -40,6 +52,8 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
+        lineRenderer.SetPosition(0, transform.position);
+        lineRenderer.SetPosition(1, LineTarget.position);
         var hit = Physics2D.CircleCast(transform.position, castRadius, Vector2.zero, float.PositiveInfinity);
         if (!hit)
         {
