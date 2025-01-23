@@ -51,11 +51,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if(!_climbing)
-            if (transform.position.y > _closestLadder.bounds.center.y)
-                _ladderClimb = 1;
-            else
-                _ladderClimb = 0;
+        if (other.CompareTag("Ladder"))
+        {
+            if (!_climbing)
+                if (transform.position.y > _closestLadder.bounds.center.y)
+                    _ladderClimb = 1;
+                else
+                    _ladderClimb = 0;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

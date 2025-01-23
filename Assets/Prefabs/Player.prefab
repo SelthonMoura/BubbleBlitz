@@ -231,3 +231,4 @@ MonoBehaviour:
   shotSpeed: 10
   pierce: 0
   bulletAmount: 1
+  bulletLimit: 1

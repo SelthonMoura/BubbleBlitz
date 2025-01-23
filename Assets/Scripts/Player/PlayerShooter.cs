@@ -6,6 +6,7 @@ public class PlayerShooter : MonoBehaviour
 {
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private WeaponStats _weaponStats;
+    private List<Bullet> _bullets = new List<Bullet>();
     private float _cooldown;
 
     private void Update()
@@ -14,7 +15,11 @@ public class PlayerShooter : MonoBehaviour
         if (_cooldown > 0)
             _cooldown -= Time.deltaTime;
         else if (Input.GetMouseButton(0))
-            Shoot();
+        {
+            var activeBullets = _bullets.FindAll(o => o.gameObject.activeSelf);
+            if (activeBullets.Count < _weaponStats.BulletLimit*_weaponStats.BulletAmount)
+                Shoot();
+        }
     }
 
     private void AimAtMouse()
@@ -39,6 +44,8 @@ public class PlayerShooter : MonoBehaviour
             var rotationShift = startingAngle + i * arrayAngle;
             var rotation = transform.rotation * Quaternion.AngleAxis(rotationShift, Vector3.forward);
             var bullet = (Bullet)PoolManager.Instance.ReuseComponent(_bulletPrefab, transform.position, rotation);
+            if(!_bullets.Contains(bullet))
+                _bullets.Add(bullet);
             bullet.gameObject.SetActive(true);
             bullet.SetDirection(bullet.transform.up * _weaponStats.ShotSpeed);
             bullet.SetWeaponStats(_weaponStats);

@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float castRadius;
     [SerializeField] private GameEventListener<CustomEvent<object>> removeBullet;
     [SerializeField] private GameEvent bulletHit;
+    private int _pierced;
     private WeaponStats _weaponStats;
     private Transform _lastObjectHit;
     private bool _collided;
@@ -29,8 +30,12 @@ public class Bullet : MonoBehaviour
     private void DestroyBullet(object bullet)
     {
         if (bullet != (object)this) return;
-        _lastObjectHit = null;
-        gameObject.SetActive(false);
+        _pierced--;
+        if (_pierced < 0)
+        {
+            _lastObjectHit = null;
+            gameObject.SetActive(false);
+        }
     }
 
     private void Update()
@@ -46,7 +51,10 @@ public class Bullet : MonoBehaviour
         _lastObjectHit = hit.transform;
         bulletHit.Raise(hit.transform, this);
         if (hit.transform.CompareTag("Ground"))
+        {
+            _lastObjectHit = null;
             gameObject.SetActive(false);
+        }
     }
 
     public void SetDirection(Vector2 direction)
@@ -54,9 +62,15 @@ public class Bullet : MonoBehaviour
         body.velocity = direction;
     }
 
+    public WeaponStats GetWeaponStats()
+    {
+        return _weaponStats;
+    }
+
     public void SetWeaponStats(WeaponStats weaponStats)
     {
         _weaponStats = weaponStats;
+        _pierced = weaponStats.Pierce;
     }
 
 }
