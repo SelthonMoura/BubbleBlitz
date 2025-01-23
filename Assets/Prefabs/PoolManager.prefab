@@ -47,3 +47,7 @@ MonoBehaviour:
   poolArray:
   - prefab: {fileID: 6205592621966441909, guid: 7d062298b462d9042ae1223539afda5b, type: 3}
     componentType: Bullet
+  - prefab: {fileID: 7564508106564703081, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
+    componentType: Bullet
+  - prefab: {fileID: 982932664995295460, guid: cc1a81d1ec05cad4290aaf2279f02814, type: 3}
+    componentType: Bullet
