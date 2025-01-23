@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  fireRate: 2
+  fireRate: 3
   shotSpeed: 15
   pierce: 0
   bulletAmount: 1

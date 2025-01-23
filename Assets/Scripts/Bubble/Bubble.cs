@@ -23,6 +23,7 @@ public class Bubble : MonoBehaviour
     [SerializeField] private GameEvent _bubbleDeath;
     private bool _poppable;
     private bool _useGravity;
+    private bool _popping;
     private Vector2 _velocity; // Current velocity
 
     private void Awake()
@@ -37,12 +38,12 @@ public class Bubble : MonoBehaviour
         _poppable = false;
         yield return new WaitForSeconds(0.2f);
         _poppable = true;
+        _bubbleSpawn.Raise();
     }
 
     private void OnEnable()
     {
         _useGravity = true;
-        _bubbleSpawn.Raise();
         StartCoroutine(InitialInvincibility());
     }
 
@@ -61,6 +62,7 @@ public class Bubble : MonoBehaviour
     private IEnumerator PopBubbleSequence(Bullet bullet)
     {
         _poppable = false;
+        _popping = true;
         _velocity = Vector2.zero;
         _useGravity = false;
         _animator.SetTrigger("Pop");
@@ -89,6 +91,12 @@ public class Bubble : MonoBehaviour
                 childBubble.PopRecursively(damage - 1);
             }
         }
+        if(_popping) return;
+        // Destroy this bubble
+        if (!_poppable)
+            _bubbleSpawn.Raise();
+        _bubbleDeath.Raise();
+        gameObject.SetActive(false);
     }
 
     private void FixedUpdate()
@@ -105,6 +113,7 @@ public class Bubble : MonoBehaviour
     {
         if (collision.CompareTag("Ground"))
         {
+            if (collision.gameObject.layer == 6 && transform.position.y < collision.transform.position.y) return;
             // Get the contact point normal
             Vector2 collisionNormal = (collision.ClosestPoint(transform.position) - (Vector2)transform.position).normalized;
 
@@ -112,7 +121,7 @@ public class Bubble : MonoBehaviour
             {
                 // Vertical collision (top or bottom of the ground)
                 float bounceVelocity = Mathf.Sqrt(-2 * _gravity * _bounceHeight);
-                _velocity = new Vector2(_velocity.x, bounceVelocity);
+                _velocity = new Vector2(_velocity.x, -_velocity.normalized.y*bounceVelocity);
             }
             else
             {
