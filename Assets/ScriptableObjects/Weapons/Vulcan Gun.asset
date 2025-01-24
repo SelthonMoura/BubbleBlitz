@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6205592621966441909, guid: 175c05544d5f3584481dd86145753550, type: 3}
   damage: 1
-  fireRate: 1
+  fireRate: 2
   shotSpeed: 15
   pierce: 0
   bulletAmount: 4
-  bulletLimit: 4
+  bulletLimit: 2
   aimed: 0
+  persistLine: 0
