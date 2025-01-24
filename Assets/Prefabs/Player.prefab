@@ -56,11 +56,10 @@ GameObject:
   m_Component:
   - component: {fileID: 869043661002913152}
   - component: {fileID: 555209125726343509}
+  - component: {fileID: 7905311814410217781}
   - component: {fileID: 3238243764452655801}
   - component: {fileID: 4312248295674277813}
-  - component: {fileID: 7905311814410217781}
   - component: {fileID: 8967206736858193554}
-  - component: {fileID: 3349217178505644474}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -136,6 +135,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7905311814410217781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435532550522312335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd794847784430943a8a56e77ca6eda5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lives: 3
+  _speed: 5
+  _spriteRenderer: {fileID: 555209125726343509}
+  _rb: {fileID: 3238243764452655801}
+  _collider: {fileID: 4312248295674277813}
 --- !u!50 &3238243764452655801
 Rigidbody2D:
   serializedVersion: 4
@@ -198,24 +214,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
---- !u!114 &7905311814410217781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1435532550522312335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd794847784430943a8a56e77ca6eda5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _lives: 3
-  _speed: 5
-  _spriteRenderer: {fileID: 555209125726343509}
-  _rb: {fileID: 3238243764452655801}
-  _collider: {fileID: 4312248295674277813}
-  _playerTakeDamageTrigger: {fileID: 11400000, guid: 512842ab5e10efd44af000bcc04cc3b3, type: 2}
 --- !u!114 &8967206736858193554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,19 +232,3 @@ MonoBehaviour:
   pierce: 0
   bulletAmount: 1
   bulletLimit: 1
---- !u!114 &3349217178505644474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1435532550522312335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e6ea047a88428643aab46a2c60926db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerHp_Xp_SO: {fileID: 11400000, guid: 3543206c1db23df458b08475ac729b18, type: 2}
-  _onPlayerTakeDamage:
-    event: {fileID: 11400000, guid: 512842ab5e10efd44af000bcc04cc3b3, type: 2}
-  _onUpdatePlayrUITrigger: {fileID: 11400000, guid: cadff5aed161acf4bb5a46b2e908d0c2, type: 2}
