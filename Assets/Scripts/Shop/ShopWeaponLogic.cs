@@ -21,9 +21,9 @@ public class ShopWeaponLogic : MonoBehaviour
         weaponPrice.text = weaponStats.weaponPrice.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void BuyLogic()
     {
-        
+        currentPrice += weaponStats.inflation;
+        weaponPrice.text = currentPrice.ToString();
     }
 }

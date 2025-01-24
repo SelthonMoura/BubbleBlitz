@@ -18,7 +18,7 @@ MonoBehaviour:
   inflation: 0
   damage: 10
   fireRate: 1
-  shotSpeed: 8
+  shotSpeed: 15
   pierce: 10
   bulletAmount: 1
   bulletLimit: 1
