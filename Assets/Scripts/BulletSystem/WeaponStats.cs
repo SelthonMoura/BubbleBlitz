@@ -5,7 +5,15 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Weapon Stats")]
 public class WeaponStats : ScriptableObject
 {
+    [Header("Prefab")]
     public GameObject bulletPrefab;
+
+    [Header("Shop")]
+    public Sprite weaponSprite;
+    public int weaponPrice;
+    public int inflation;
+
+    [Header("Stats")]
     public int damage;
     public float fireRate;
     public float shotSpeed;
