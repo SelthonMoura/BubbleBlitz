@@ -5,6 +5,16 @@ public class GameEvent : ScriptableObject
 {
     private readonly List<GameEventListener> _listeners = new List<GameEventListener>();
 
+    public void Raise(int number)
+    {
+        var parameters = new object[1];
+        parameters[0] = number;
+        for (var i = _listeners.Count - 1; i >= 0; i--)
+        {
+            _listeners[i].OnEventRaised(parameters);
+        }
+    }
+
     public void Raise(params object[] parameters)
     {
         for (var i = _listeners.Count - 1; i >= 0; i--)

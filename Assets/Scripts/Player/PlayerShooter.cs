@@ -1,25 +1,51 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerShooter : MonoBehaviour
 {
-    [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private WeaponStats _weaponStats;
+    [SerializeField] private WeaponList _weaponsList;
+    [SerializeField] private GameEventListener<CustomEvent<int>> _weaponChangeEvent;
     private List<Bullet> _bullets = new List<Bullet>();
     private float _cooldown;
 
+    private void Awake()
+    {
+        _weaponChangeEvent.AddListener<int>(ChangeWeapon);
+    }
+
+    private void OnDestroy()
+    {
+        _weaponChangeEvent.RemoveListener<int>(ChangeWeapon);
+    }
+
     private void Update()
     {
-        //AimAtMouse();
+        if(_weaponStats.aimed)
+            AimAtMouse();
         if (_cooldown > 0)
             _cooldown -= Time.deltaTime;
         else if (Input.GetMouseButton(0))
         {
             var activeBullets = _bullets.FindAll(o => o.gameObject.activeSelf);
-            if (activeBullets.Count < _weaponStats.BulletLimit*_weaponStats.BulletAmount)
+            if (_weaponStats.persistLine)
+            {
+                var wiredBullets = activeBullets.FindAll(o => o.GetWired());
+                if(wiredBullets.Count > 0)
+                    wiredBullets[0].gameObject.SetActive(false);
+            }
+            if (activeBullets.Count < _weaponStats.bulletLimit*_weaponStats.bulletAmount)
                 Shoot();
         }
+    }
+
+    private void ChangeWeapon(int i)
+    {
+        _weaponStats = _weaponsList.weapons[i];
+        if(!_weaponStats.aimed)
+            transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     private void AimAtMouse()
@@ -36,19 +62,19 @@ public class PlayerShooter : MonoBehaviour
     private void Shoot()
     {
         if (_cooldown > 0) return;
-        _cooldown = 1f / _weaponStats.FireRate;
-        for (var i = 0; i < _weaponStats.BulletAmount; i++)
+        _cooldown = 1f / _weaponStats.fireRate;
+        for (var i = 0; i < _weaponStats.bulletAmount; i++)
         {
             var arrayAngle = 15f;
-            var startingAngle = _weaponStats.BulletAmount <= 1 ? 0 : -arrayAngle * (_weaponStats.BulletAmount) / 2 + arrayAngle / 2;
+            var startingAngle = _weaponStats.bulletAmount <= 1 ? 0 : -arrayAngle * (_weaponStats.bulletAmount) / 2 + arrayAngle / 2;
             var rotationShift = startingAngle + i * arrayAngle;
             var rotation = transform.rotation * Quaternion.AngleAxis(rotationShift, Vector3.forward);
-            var bullet = (Bullet)PoolManager.Instance.ReuseComponent(_bulletPrefab, transform.position, rotation);
+            var bullet = (Bullet)PoolManager.Instance.ReuseComponent(_weaponStats.bulletPrefab, transform.position, rotation);
             bullet.LineTarget = transform;
             if(!_bullets.Contains(bullet))
                 _bullets.Add(bullet);
             bullet.gameObject.SetActive(true);
-            bullet.SetDirection(bullet.transform.up * _weaponStats.ShotSpeed);
+            bullet.SetDirection(bullet.transform.up * _weaponStats.shotSpeed);
             bullet.SetWeaponStats(_weaponStats);
         }
     }

@@ -44,8 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 374854d5775ecc6408f98fae24b83506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 6205592621966441909, guid: 7d062298b462d9042ae1223539afda5b, type: 3}
-  _weaponStats: {fileID: 8967206736858193554}
+  _weaponStats: {fileID: 11400000, guid: ba70611cf4318cd4f93f34368c23e477, type: 2}
+  _weaponsList: {fileID: 11400000, guid: 903d8a570d9d05446b1d448260db13f6, type: 2}
+  _weaponChangeEvent:
+    event: {fileID: 11400000, guid: 1923fabfcd2302843b5012c4d2f6ce98, type: 2}
 --- !u!1 &1435532550522312335
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,7 +61,6 @@ GameObject:
   - component: {fileID: 7905311814410217781}
   - component: {fileID: 3238243764452655801}
   - component: {fileID: 4312248295674277813}
-  - component: {fileID: 8967206736858193554}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -214,21 +215,3 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
---- !u!114 &8967206736858193554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1435532550522312335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d77348106bd08be41ae42e85390f27b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  fireRate: 3
-  shotSpeed: 15
-  pierce: 0
-  bulletAmount: 1
-  bulletLimit: 1

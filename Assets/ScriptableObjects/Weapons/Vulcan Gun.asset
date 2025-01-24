@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d77348106bd08be41ae42e85390f27b1, type: 3}
+  m_Name: Vulcan Gun
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 6205592621966441909, guid: 175c05544d5f3584481dd86145753550, type: 3}
+  damage: 1
+  fireRate: 1
+  shotSpeed: 15
+  pierce: 0
+  bulletAmount: 4
+  bulletLimit: 4
+  aimed: 0

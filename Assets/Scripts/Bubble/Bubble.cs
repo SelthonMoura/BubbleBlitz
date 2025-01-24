@@ -67,7 +67,7 @@ public class Bubble : MonoBehaviour
         _useGravity = false;
         _animator.SetTrigger("Pop");
         // Recursive popping based on bullet damage
-        PopRecursively(bullet.GetWeaponStats().Damage);
+        PopRecursively(bullet.GetWeaponStats().damage);
         _removeBullet.Raise(bullet);
         yield return new WaitForSeconds(0.5f);
         // Destroy this bubble

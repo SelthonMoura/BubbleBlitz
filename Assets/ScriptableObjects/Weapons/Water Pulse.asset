@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d77348106bd08be41ae42e85390f27b1, type: 3}
+  m_Name: Water Pulse
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 6205592621966441909, guid: 0fc1f1d02c33e104fa550a88fd0e5b77, type: 3}
+  damage: 10
+  fireRate: 1
+  shotSpeed: 8
+  pierce: 10
+  bulletAmount: 1
+  bulletLimit: 1
+  aimed: 0
+  persistLine: 0
