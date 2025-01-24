@@ -52,6 +52,11 @@ public class Bubble : MonoBehaviour
         bulletHit.RemoveListener<object, Bullet>(PopBubble);
     }
 
+    private void OnBecameInvisible()
+    {
+        PopRecursively(999);
+    }
+
     private void PopBubble(object hit, Bullet bullet)
     {
         if ((object)transform != hit) return;

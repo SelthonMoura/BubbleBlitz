@@ -11,14 +11,12 @@ public class BulletLine : MonoBehaviour
     private void OnEnable()
     {
         _lineRenderer.SetPosition(0, transform.position);
-        _lineRenderer.SetPosition(1, _bullet.LineTarget.position);
+        _lineRenderer.SetPosition(1, _bullet.LineTarget.position+Vector3.down*0.2f);
     }
 
     private void Update()
     {
-
         _lineRenderer.SetPosition(0, transform.position);
-        _lineRenderer.SetPosition(1, _bullet.LineTarget.position);
         var origin = _lineRenderer.GetPosition(1);
         var direction = _lineRenderer.GetPosition(0);
         var hits = Physics2D.LinecastAll(origin, direction);

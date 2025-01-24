@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private PlayerHp_Xp_Scriptable _playerHp_Xp_SO;
+    [SerializeField] private PlayerStats _playerStats;
     [SerializeField] private GameEventListener<CustomEvent> _onPlayerTakeDamage;
     [SerializeField] private GameEvent _onUpdatePlayrUITrigger;
 
@@ -15,7 +15,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
-        _playerHp_Xp_SO.currentHp = _playerHp_Xp_SO.maxHp;
+        _playerStats.currentHp = _playerStats.maxHp;
         _onUpdatePlayrUITrigger.Raise();
     }
 
@@ -26,12 +26,12 @@ public class PlayerHealth : MonoBehaviour
 
     private void PlayerTakeDamage()
     {
-        _playerHp_Xp_SO.currentHp -= 1;
+        _playerStats.currentHp -= 1;
         Debug.Log("player damage");
 
         _onUpdatePlayrUITrigger.Raise();
 
-        if(_playerHp_Xp_SO.currentHp <= 0)
+        if(_playerStats.currentHp <= 0)
         {
             // trigger game over
         }
