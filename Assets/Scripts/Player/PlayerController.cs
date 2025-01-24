@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private Collider2D _collider;
+    [SerializeField] private GameEvent _playerTakeDamageTrigger;
 
     private bool _climbing = false;
     private bool _touchingLadder = false;
@@ -47,6 +48,11 @@ public class PlayerController : MonoBehaviour
         {
             _touchingLadder = true;
             _closestLadder = collision;
+        }
+        else if(collision.CompareTag("Enemy"))
+        {
+            //EventManager.OnUpdatePlayerBarsTrigger();
+            _playerTakeDamageTrigger.Raise();
         }
     }
 
