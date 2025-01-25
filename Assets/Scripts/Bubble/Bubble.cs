@@ -32,7 +32,7 @@ public class Bubble : MonoBehaviour
         // Set the initial velocity
         _velocity = _initialVelocity;
         bulletHit.AddListener<object, Bullet>(PopBubble);
-        bombUsed.AddListener(() => { StartCoroutine(PopBubbleSequence()); });
+        bombUsed.AddListener(() => { if (gameObject.activeSelf)  StartCoroutine(PopBubbleSequence()); });
     }
 
     private IEnumerator InitialInvincibility()
@@ -52,7 +52,7 @@ public class Bubble : MonoBehaviour
     private void OnDestroy()
     {
         bulletHit.RemoveListener<object, Bullet>(PopBubble);
-        bombUsed.RemoveListener(() => { StartCoroutine(PopBubbleSequence()); });
+        bombUsed.RemoveListener(() => { if (gameObject.activeSelf) StartCoroutine(PopBubbleSequence()); });
     }
 
     private void OnBecameInvisible()
