@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerShooter : MonoBehaviour
 {
     [SerializeField] private WeaponStats _weaponStats;
-    [SerializeField] private WeaponList _weaponsList;
+    [SerializeField] private ItemList _itemList;
     [SerializeField] private GameEventListener<CustomEvent<int>> _weaponChangeEvent;
     private List<Bullet> _bullets = new List<Bullet>();
     private float _cooldown;
@@ -43,7 +43,7 @@ public class PlayerShooter : MonoBehaviour
 
     private void ChangeWeapon(int i)
     {
-        _weaponStats = _weaponsList.weapons[i];
+        _weaponStats = _itemList.weapons[i];
         if(!_weaponStats.aimed)
             transform.rotation = Quaternion.Euler(0, 0, 0);
     }

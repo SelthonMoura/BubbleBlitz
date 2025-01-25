@@ -9,14 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d6f51b96b5466049b32a2b1f49efa0a, type: 3}
-  m_Name: PlayerStats
+  m_Script: {fileID: 11500000, guid: c7c7dbfb5a094024e8612a2e84145cf2, type: 3}
+  m_Name: Boost Pack
   m_EditorClassIdentifier: 
-  maxHp: 3
-  baseSpeed: 5
-  currentHp: -5
-  speed: 15
-  extraLives: 2
+  itemName: Boost Pack
+  icon: {fileID: 0}
+  extraLives: 0
+  speedModifier: 0
+  canJump: 1
   bombs: 0
-  canJump: 0
   hasShield: 0

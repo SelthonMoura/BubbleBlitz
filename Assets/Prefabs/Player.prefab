@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 751614794012100944}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponStats: {fileID: 11400000, guid: ba70611cf4318cd4f93f34368c23e477, type: 2}
-  _weaponsList: {fileID: 11400000, guid: 903d8a570d9d05446b1d448260db13f6, type: 2}
+  _itemList: {fileID: 11400000, guid: 4fb943a370cd37342a4f516829ee95c2, type: 2}
   _weaponChangeEvent:
     event: {fileID: 11400000, guid: 1923fabfcd2302843b5012c4d2f6ce98, type: 2}
 --- !u!1 &1435532550522312335
@@ -62,6 +62,7 @@ GameObject:
   - component: {fileID: 6296946698121952755}
   - component: {fileID: 3238243764452655801}
   - component: {fileID: 4312248295674277813}
+  - component: {fileID: 3291001599541375346}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -79,7 +80,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3918100060683269096}
@@ -126,12 +127,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -241843641, guid: 445ce3a65b3ca6744b163f26ae2782cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -152,9 +153,18 @@ MonoBehaviour:
   _lives: 3
   _playerStats: {fileID: 11400000, guid: 019cbd2385bf69e4b881256ffb8d4f04, type: 2}
   _spriteRenderer: {fileID: 555209125726343509}
+  _animator: {fileID: 3291001599541375346}
   _rb: {fileID: 3238243764452655801}
   _collider: {fileID: 4312248295674277813}
+  _itemList: {fileID: 11400000, guid: 4fb943a370cd37342a4f516829ee95c2, type: 2}
   _playerTakeDamageTrigger: {fileID: 11400000, guid: 512842ab5e10efd44af000bcc04cc3b3, type: 2}
+  _useBombEvent: {fileID: 11400000, guid: 7755de8747974a0479bf790628781dff, type: 2}
+  _buyItemEvent:
+    event: {fileID: 11400000, guid: cdd88bbb97651294785af6b8cc56cb0d, type: 2}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 192
+  _jumpForce: 10
 --- !u!114 &6296946698121952755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +240,27 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
+  m_Offset: {x: -0.06, y: -0.1}
+  m_Size: {x: 0.75, y: 1.75}
   m_Direction: 0
+--- !u!95 &3291001599541375346
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435532550522312335}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 71bc38dcfec36fe4bb2bad363fa8dac1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

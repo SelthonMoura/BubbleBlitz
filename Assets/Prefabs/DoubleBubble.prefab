@@ -33,7 +33,15 @@ PrefabInstance:
       value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 1894783715779244302, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
+      propertyPath: _childBubbles.Array.data[0].initialVelocity.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894783715779244302, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: _childBubbles.Array.data[1].initialVelocity.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894783715779244302, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
+      propertyPath: _childBubbles.Array.data[1].initialVelocity.y
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3589572707829757268, guid: 8276f0fe060f53e44a94513e89299667, type: 3}

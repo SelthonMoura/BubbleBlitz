@@ -18,6 +18,7 @@ public class Bubble : MonoBehaviour
     [SerializeField] private float _gravity = -9.81f; // Simulated gravity
     [SerializeField] private Vector2 _initialVelocity = new Vector2(2f, 5f); // Initial velocity (x and y)
     [SerializeField] private GameEventListener<CustomEvent<object, Bullet>> bulletHit;
+    [SerializeField] private GameEventListener<CustomEvent> bombUsed;
     [SerializeField] private GameEvent _removeBullet;
     [SerializeField] private GameEvent _bubbleSpawn;
     [SerializeField] private GameEvent _bubbleDeath;
@@ -31,6 +32,7 @@ public class Bubble : MonoBehaviour
         // Set the initial velocity
         _velocity = _initialVelocity;
         bulletHit.AddListener<object, Bullet>(PopBubble);
+        bombUsed.AddListener(() => { StartCoroutine(PopBubbleSequence()); });
     }
 
     private IEnumerator InitialInvincibility()
@@ -50,11 +52,12 @@ public class Bubble : MonoBehaviour
     private void OnDestroy()
     {
         bulletHit.RemoveListener<object, Bullet>(PopBubble);
+        bombUsed.RemoveListener(() => { StartCoroutine(PopBubbleSequence()); });
     }
 
     private void OnBecameInvisible()
     {
-        PopRecursively(999);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -13, 13), Mathf.Clamp(transform.position.y, -6, 6));
     }
 
     private void PopBubble(object hit, Bullet bullet)
@@ -64,7 +67,7 @@ public class Bubble : MonoBehaviour
         StartCoroutine(PopBubbleSequence(bullet));
     }
 
-    private IEnumerator PopBubbleSequence(Bullet bullet)
+    private IEnumerator PopBubbleSequence(Bullet bullet = null)
     {
         _poppable = false;
         _popping = true;
@@ -72,8 +75,15 @@ public class Bubble : MonoBehaviour
         _useGravity = false;
         _animator.SetTrigger("Pop");
         // Recursive popping based on bullet damage
-        PopRecursively(bullet.GetWeaponStats().damage);
-        _removeBullet.Raise(bullet);
+        if (bullet != null)
+        {
+            PopRecursively(bullet.GetWeaponStats().damage);
+            _removeBullet.Raise(bullet);
+        }
+        else
+        {
+            PopRecursively(1);
+        }
         yield return new WaitForSeconds(0.5f);
         // Destroy this bubble
         _bubbleDeath.Raise();
@@ -91,7 +101,10 @@ public class Bubble : MonoBehaviour
             {
                 Bubble childBubble = (Bubble)PoolManager.Instance.ReuseComponent(child.prefab, transform.position, Quaternion.identity);
                 if (child.initialVelocity != Vector2.zero)
+                {
+                    childBubble.transform.Translate(child.initialVelocity/10f);
                     childBubble.SetVelocity(child.initialVelocity);
+                }
                 // Pass remaining damage to child bubbles
                 childBubble.PopRecursively(damage - 1);
             }
@@ -118,7 +131,6 @@ public class Bubble : MonoBehaviour
     {
         if (collision.CompareTag("Ground"))
         {
-            if (collision.gameObject.layer == 6 && transform.position.y < collision.transform.position.y) return;
             // Get the contact point normal
             Vector2 collisionNormal = (collision.ClosestPoint(transform.position) - (Vector2)transform.position).normalized;
 

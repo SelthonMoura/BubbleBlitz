@@ -6,10 +6,12 @@ using UnityEngine;
 public class PlayerStats : ScriptableObject
 {
     public int maxHp;
+    public float baseSpeed;
+
     public int currentHp;
-    public int extraLives;
     public float speed;
-    public bool canJump;
+    public int extraLives;
     public int bombs;
+    public bool canJump;
     public bool hasShield;
 }

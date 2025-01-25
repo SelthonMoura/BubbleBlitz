@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,18 +8,59 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int _lives;
     [SerializeField] private PlayerStats _playerStats;
     [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private Animator _animator;
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private Collider2D _collider;
+    [SerializeField] private ItemList _itemList;
     [SerializeField] private GameEvent _playerTakeDamageTrigger;
+    [SerializeField] private GameEvent _useBombEvent;
+    [SerializeField] private GameEventListener<CustomEvent<int>> _buyItemEvent;
+    [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private float _jumpForce = 10f;
 
     private bool _climbing = false;
     private bool _touchingLadder = false;
+    private bool _isGrounded = false;
     private float _ladderClimb = 0;
     private Collider2D _closestLadder;
+
+    private void Awake()
+    {
+        _playerStats.speed = _playerStats.baseSpeed;
+        _playerStats.extraLives = 2;
+        _playerStats.bombs = 0;
+        _playerStats.canJump = false;
+        _playerStats.hasShield = false;
+        _buyItemEvent.AddListener<int>(BuyItem);
+    }
+
+    private void OnDestroy()
+    {
+        _buyItemEvent.RemoveListener<int>(BuyItem);
+    }
+
+    private void BuyItem(int itemIndex)
+    {
+        ItemSO item = _itemList.items[itemIndex];
+        item.ApplyEffect(_playerStats);
+    }
 
     private void Update()
     {
         var inputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        CheckGrounded();
+
+        if (Input.GetButtonDown("Jump") && _isGrounded && _playerStats.canJump)
+        {
+            Jump();
+        }
+
+        if (Input.GetButtonDown("Bomb") && _playerStats.bombs>0)
+        {
+            _useBombEvent.Raise();
+            _playerStats.bombs--;
+        }
 
         if (_touchingLadder)
         {
@@ -32,14 +74,32 @@ public class PlayerController : MonoBehaviour
                 _spriteRenderer.flipX = true;
             else if (inputVector.x > 0)
                 _spriteRenderer.flipX = false;
-            if(Physics2D.Raycast(transform.position, inputVector, 0.8f, 7))
+
+            var hits = Physics2D.BoxCastAll(transform.position, new Vector2(0.6f, 0.6f), 0, inputVector, 0f);
+            _animator.SetBool("Walking", inputVector.magnitude > 0&&_isGrounded);
+            if (!Array.Exists(hits, o => o.transform.CompareTag("Ground")))
                 _rb.velocity = new Vector2(inputVector.x * _playerStats.speed, _rb.velocity.y);
         }
         else
         {
-            if(_touchingLadder)
-                transform.position = new Vector3(_closestLadder.bounds.center.x, _closestLadder.bounds.min.y + _collider.bounds.size.y/2 + _ladderClimb*_closestLadder.bounds.size.y);
+            if (_touchingLadder)
+                transform.position = new Vector3(_closestLadder.bounds.center.x, _closestLadder.bounds.min.y + _collider.bounds.size.y / 2 + _ladderClimb * _closestLadder.bounds.size.y);
         }
+    }
+
+    private void Jump()
+    {
+        _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
+    }
+
+    private void CheckGrounded()
+    {
+        // Use a small boxcast or overlap check to detect if the player is on the ground
+        var bounds = _collider.bounds;
+        Vector2 position = new Vector2(bounds.center.x, bounds.min.y);
+        Vector2 size = new Vector2(bounds.size.x * 0.9f, 0.1f);
+
+        _isGrounded = Physics2D.OverlapBox(position, size, 0f, _groundLayer) != null;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
