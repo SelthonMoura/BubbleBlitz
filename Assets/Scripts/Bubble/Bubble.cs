@@ -137,8 +137,13 @@ public class Bubble : MonoBehaviour
             if (Mathf.Abs(collisionNormal.y) > Mathf.Abs(collisionNormal.x))
             {
                 // Vertical collision (top or bottom of the ground)
-                float bounceVelocity = Mathf.Sqrt(-2 * _gravity * _bounceHeight);
-                _velocity = new Vector2(_velocity.x, -_velocity.normalized.y*bounceVelocity);
+                if(_gravity==0)
+                    _velocity = new Vector2(_velocity.x, -_velocity.y);
+                else
+                {
+                    float bounceVelocity = Mathf.Sqrt(-2 * _gravity * _bounceHeight);
+                    _velocity = new Vector2(_velocity.x, -_velocity.normalized.y * bounceVelocity);
+                }
             }
             else
             {

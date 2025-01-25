@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour
     private void OnDestroy()
     {
         _bubbleSpawnEvent.RemoveListener(BubbleCountUp);
-        _bubbleSpawnEvent.RemoveListener(BubbleCountDown);
+        _bubbleDeathEvent.RemoveListener(BubbleCountDown);
         _restartLevelEvent.RemoveListener(RestartLevel);
         _stopTimeEvent.RemoveListener(StopTime);
         _resumeTimeEvent.RemoveListener(RestartTime);
