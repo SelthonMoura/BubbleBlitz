@@ -522,7 +522,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7576356443114135941}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5899277050800565082}
+        m_TargetAssemblyTypeName: GameOverPanel, Assembly-CSharp
+        m_MethodName: RestartGameButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2170708557981923146
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,7 +655,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7506898469044664169}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5899277050800565082}
+        m_TargetAssemblyTypeName: GameOverPanel, Assembly-CSharp
+        m_MethodName: MenuButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4349443382260808433
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,7 +788,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6621212687656658772}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5899277050800565082}
+        m_TargetAssemblyTypeName: GameOverPanel, Assembly-CSharp
+        m_MethodName: ExitGameButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5604427884729130140
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,6 +946,7 @@ GameObject:
   - component: {fileID: 8117366656897959621}
   - component: {fileID: 553464662999816893}
   - component: {fileID: 8960212061181826757}
+  - component: {fileID: 5899277050800565082}
   m_Layer: 5
   m_Name: GameOverPanel
   m_TagString: Untagged
@@ -978,3 +1015,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5899277050800565082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6646013814231067191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1e33868e6a8ed743af0bc552bb527f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerStatsSO: {fileID: 11400000, guid: 019cbd2385bf69e4b881256ffb8d4f04, type: 2}
+  _resumeTimeTrigger: {fileID: 11400000, guid: e01ef46ffc7d31c4aad567ca1963e80e, type: 2}
+  _firstLevelScene: SampleScene
+  _menuScene: MenuScene

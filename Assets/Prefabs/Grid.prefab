@@ -1822,6 +1822,12 @@ MonoBehaviour:
     event: {fileID: 11400000, guid: d181e6eb376aa6f4fa18f074077db3bf, type: 2}
   _bubbleDeathEvent:
     event: {fileID: 11400000, guid: a9d568ff5a88fb242a22024cd4d38b23, type: 2}
+  _restartLevelEvent:
+    event: {fileID: 11400000, guid: 653fa260f4ab7684ab1a305bf1621d13, type: 2}
+  _stopTimeEvent:
+    event: {fileID: 11400000, guid: 4e601f052ce71ec49b5777e9c7fe334d, type: 2}
+  _resumeTimeEvent:
+    event: {fileID: 11400000, guid: e01ef46ffc7d31c4aad567ca1963e80e, type: 2}
   _currentLevel: 1
   _currentXPAmount: 0
   _XPToNextLevel: 50
