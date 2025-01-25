@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 1856323360816029135}
   - component: {fileID: 6949935547806318067}
   - component: {fileID: 8967844460940745186}
-  - component: {fileID: 9103454726120646795}
+  - component: {fileID: 2267239009095955847}
   m_Layer: 0
   m_Name: Title
   m_TagString: Untagged
@@ -418,7 +418,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &9103454726120646795
+--- !u!95 &2267239009095955847
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -428,7 +428,7 @@ Animator:
   m_GameObject: {fileID: 1883346707130039048}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 594ce2511ba246a4394f0027e81433d4, type: 2}
+  m_Controller: {fileID: 9100000, guid: e4b41b734373ffb419986d729ce26d29, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
