@@ -49,6 +49,8 @@ MonoBehaviour:
   _playerAnimator: {fileID: 3291001599541375346}
   _weaponChangeEvent:
     event: {fileID: 11400000, guid: 1923fabfcd2302843b5012c4d2f6ce98, type: 2}
+  _timer: 0
+  _playerWeaponText: {fileID: 0}
 --- !u!1 &1435532550522312335
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,6 +167,8 @@ MonoBehaviour:
     event: {fileID: 11400000, guid: cdd88bbb97651294785af6b8cc56cb0d, type: 2}
   _playerScoredEvent:
     event: {fileID: 11400000, guid: 0925a3d53ac03ca45b5322d049e4b77a, type: 2}
+  _gameOverEvent:
+    event: {fileID: 11400000, guid: dcd084a41ebc6034d8160a833f9fc35c, type: 2}
   _groundLayer:
     serializedVersion: 2
     m_Bits: 192

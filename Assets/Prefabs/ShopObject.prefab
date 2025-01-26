@@ -104,7 +104,9 @@ MonoBehaviour:
   bulletHit:
     event: {fileID: 11400000, guid: 3586ce0e65f99fb458cca591cd2a08ad, type: 2}
   _removeBullet: {fileID: 11400000, guid: 5fb7d699da3feeb4dbaf9460ed01ccff, type: 2}
-  _sprite: {fileID: 57839430261770834}
+  _spriteRenderer: {fileID: 57839430261770834}
+  _right: {fileID: 21300000, guid: 5635a401f0d2e14418243bc0b1ab1826, type: 3}
+  _left: {fileID: 21300000, guid: 8c54862489541ae48b25e00f53e65968, type: 3}
   tweenDuration: 5
   easeType: 1
 --- !u!61 &2945377007450163868

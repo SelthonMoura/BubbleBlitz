@@ -15,10 +15,10 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameEventListener<CustomEvent> _restartLevelEvent;
     [SerializeField] private GameEventListener<CustomEvent> _stopTimeEvent;
     [SerializeField] private GameEventListener<CustomEvent> _resumeTimeEvent;
+    [SerializeField] private GameEvent _gameWinTrigger;
     private int _currentLevel = 0;
     private int _currentWave = 0;
     private int _currentXPAmount = 0;
-    private int _XPToNextLevel = 0;
 
     private void Start()
     {
@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour
         _restartLevelEvent.AddListener(RestartLevel);
         _stopTimeEvent.AddListener(StopTime);
         _resumeTimeEvent.AddListener(RestartTime);
-        CalculateXPToNextLevel(_currentLevel);
+
         StartCoroutine(LevelLoop());
     }
 
@@ -55,7 +55,7 @@ public class GameController : MonoBehaviour
     private void BubbleCountDown()
     {
         _currentXPAmount++;
-        if (_currentXPAmount >= _XPToNextLevel)
+        if (_currentXPAmount >= _levels[_currentLevel].popsRequired)
             StartCoroutine(NextLevel());
     }
 
@@ -63,15 +63,28 @@ public class GameController : MonoBehaviour
     {
         _screenText.text = "FASE COMPLETA!";
         _screenText.gameObject.SetActive(true);
-        foreach (var bubble in FindObjectsOfType<Bubble>()) {
+
+        foreach (var bubble in FindObjectsOfType<Bubble>())
+        {
             bubble.gameObject.SetActive(false);
         }
+
         yield return new WaitForSecondsRealtime(2f);
+
         _screenText.gameObject.SetActive(false);
         _levels[_currentLevel].level.SetActive(false);
-        _currentLevel++;
-        _player.transform.position = _levels[_currentLevel].playerPosition.transform.position;
-        _levels[_currentLevel].level.SetActive(true);
+
+        if((_currentLevel + 1) < _levels.Count)
+        {
+            _currentLevel++;
+            _player.transform.position = _levels[_currentLevel].playerPosition.transform.position;
+            _levels[_currentLevel].level.SetActive(true);
+        }
+        else
+        {
+            GameWin();
+        }
+        
     }
 
     private void RestartLevel()
@@ -79,14 +92,10 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    private void GameOver()
+    private void GameWin()
     {
-
-    }
-
-    private void CalculateXPToNextLevel(int level)
-    {
-        _XPToNextLevel = (int)Mathf.Pow(level + 4, 2) * 2;
+        StopTime();
+        _gameWinTrigger.Raise();
     }
 
     private void StopTime()

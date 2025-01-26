@@ -12,7 +12,9 @@ public class ShopController : MonoBehaviour
     public GameObject shopSpawnerRight;
     [SerializeField] private GameEventListener<CustomEvent<object, Bullet>> bulletHit;
     [SerializeField] private GameEvent _removeBullet;
-    [SerializeField] private SpriteRenderer _sprite;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private Sprite _right;
+    [SerializeField] private Sprite _left;
 
     public float tweenDuration;
     public Ease easeType;
@@ -20,7 +22,7 @@ public class ShopController : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
-        _sprite.flipX = false;
+        _spriteRenderer.sprite = _right;
         bulletHit.AddListener<object, Bullet>(ShopHit);
 
         transform.DOLocalMoveX(shopSpawnerRight.transform.position.x, tweenDuration)
@@ -28,7 +30,7 @@ public class ShopController : MonoBehaviour
             .SetLoops(2, LoopType.Yoyo)
             .OnStepComplete(() =>
             {
-                _sprite.flipX = true;
+                _spriteRenderer.sprite = _left;
             })
             .OnComplete(ShopFinishAnimation);
     }

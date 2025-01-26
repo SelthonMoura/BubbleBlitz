@@ -5086,6 +5086,7 @@ MonoBehaviour:
       - bubble: 2
         positionX: 0.75
       secondsToNext: 20
+    popsRequired: 0
   - level: {fileID: 5073647404708343535}
     playerPosition: {fileID: 4500587624970803516}
     waves:
@@ -5093,6 +5094,7 @@ MonoBehaviour:
       - bubble: 7
         positionX: -1
       secondsToNext: 0
+    popsRequired: 0
   - level: {fileID: 8881600090719721243}
     playerPosition: {fileID: 3951168936141650878}
     waves:
@@ -5100,6 +5102,7 @@ MonoBehaviour:
       - bubble: 7
         positionX: -1
       secondsToNext: 0
+    popsRequired: 0
   - level: {fileID: 8157694743310233084}
     playerPosition: {fileID: 6804723571800564931}
     waves:
@@ -5107,6 +5110,7 @@ MonoBehaviour:
       - bubble: 7
         positionX: -1
       secondsToNext: 0
+    popsRequired: 0
   - level: {fileID: 859951771828297949}
     playerPosition: {fileID: 8732969161558884437}
     waves:
@@ -5114,6 +5118,7 @@ MonoBehaviour:
       - bubble: 7
         positionX: -1
       secondsToNext: 0
+    popsRequired: 0
   _screenText: {fileID: 0}
   _bubbleDeathEvent:
     event: {fileID: 11400000, guid: a9d568ff5a88fb242a22024cd4d38b23, type: 2}
@@ -5123,6 +5128,7 @@ MonoBehaviour:
     event: {fileID: 11400000, guid: 4e601f052ce71ec49b5777e9c7fe334d, type: 2}
   _resumeTimeEvent:
     event: {fileID: 11400000, guid: e01ef46ffc7d31c4aad567ca1963e80e, type: 2}
+  _gameWinTrigger: {fileID: 11400000, guid: c33bd55c7818592479dbed737a951266, type: 2}
 --- !u!114 &7839065540238027792
 MonoBehaviour:
   m_ObjectHideFlags: 0
