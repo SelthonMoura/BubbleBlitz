@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using TMPro;
 using UnityEngine;
 
 public class PlayerShooter : MonoBehaviour
@@ -11,6 +13,8 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] private GameEventListener<CustomEvent<int>> _weaponChangeEvent;
     private List<Bullet> _bullets = new List<Bullet>();
     private float _cooldown;
+    [SerializeField] private float _timer;
+    [SerializeField] private TMP_Text _playerWeaponText;
 
     private void Awake()
     {
@@ -24,8 +28,11 @@ public class PlayerShooter : MonoBehaviour
 
     private void Update()
     {
+        UpdateWeaponUI();
+
         if(_weaponStats.aimed)
             AimAtMouse();
+        
         if (_cooldown > 0)
             _cooldown -= Time.deltaTime;
         else if (Input.GetMouseButton(0))
@@ -40,11 +47,28 @@ public class PlayerShooter : MonoBehaviour
             if (activeBullets.Count < _weaponStats.bulletLimit*_weaponStats.bulletAmount)
                 Shoot();
         }
+
+        if(_timer >= 0 && _weaponStats != _itemList.weapons[0])
+            _timer -= Time.deltaTime;
+        else
+        {
+            ChangeWeapon(0);
+            _timer = 0;
+        }
+    }
+
+    private void UpdateWeaponUI()
+    {
+        if (_weaponStats == _itemList.weapons[0])
+            _playerWeaponText.text = $"{_weaponStats.name}";
+        else
+            _playerWeaponText.text = $"{_weaponStats.name} <color=red>{(int)(_timer % 60)}</color>";
     }
 
     private void ChangeWeapon(int i)
     {
         _weaponStats = _itemList.weapons[i];
+        _timer = _weaponStats.timer;
         if(!_weaponStats.aimed)
             transform.rotation = Quaternion.Euler(0, 0, 0);
     }

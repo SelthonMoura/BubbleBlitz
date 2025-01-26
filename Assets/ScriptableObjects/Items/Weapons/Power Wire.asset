@@ -13,15 +13,13 @@ MonoBehaviour:
   m_Name: Power Wire
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6205592621966441909, guid: 68b919ebeaee44e45844cea1151ae54c, type: 3}
-  weaponSprite: {fileID: 21300000, guid: 45f6095645e618a4d94fe6de204b1972, type: 3}
-  weaponPrice: 400
-  inflation: 200
   damage: 1
   fireRate: 5
   shotSpeed: 25
   pierce: 0
   bulletAmount: 1
   bulletLimit: 1
+  timer: 20
   aimed: 0
   persistLine: 1
   shotSFX: PowerWire

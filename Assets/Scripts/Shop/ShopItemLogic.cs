@@ -27,19 +27,16 @@ public class ShopItemLogic : MonoBehaviour
 
     public void BuyLogic()
     {
-        if(currentPrice <= 100000)
+        if (currentPrice <= _playerStats.score)
         {
-            if(currentPrice <= _playerStats.score)
-            {
-                _playerStats.score -= currentPrice;
-                updateUI.Raise();
-                currentPrice += inflation;
-                itemPrice.text = currentPrice.ToString();
-                gameEvent.Raise(eventRaiseID);
+            _playerStats.score -= currentPrice;
+            updateUI.Raise();
+            currentPrice += inflation;
+            itemPrice.text = currentPrice.ToString();
+            gameEvent.Raise(eventRaiseID);
 
-                if(_compraUnica)
-                    _button.interactable = false;
-            }
+            if (_compraUnica)
+                _button.interactable = false;
         }
     }
 }
