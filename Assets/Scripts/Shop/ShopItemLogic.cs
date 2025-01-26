@@ -16,6 +16,8 @@ public class ShopItemLogic : MonoBehaviour
 
     public int currentPrice;
     public int inflation;
+    [SerializeField] private bool _compraUnica;
+    [SerializeField] private Button _button;
 
     void OnEnable()
     {
@@ -34,6 +36,9 @@ public class ShopItemLogic : MonoBehaviour
                 currentPrice += inflation;
                 itemPrice.text = currentPrice.ToString();
                 gameEvent.Raise(eventRaiseID);
+
+                if(_compraUnica)
+                    _button.interactable = false;
             }
         }
     }
