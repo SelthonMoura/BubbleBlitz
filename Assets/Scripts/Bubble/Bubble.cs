@@ -22,6 +22,8 @@ public class Bubble : MonoBehaviour
     [SerializeField] private GameEventListener<CustomEvent> bombUsed;
     [SerializeField] private GameEvent _removeBullet;
     [SerializeField] private GameEvent _bubbleDeath;
+    [SerializeField] private GameEvent _playerScored;
+    [SerializeField] private int points;
     private bool _spawning;
     private bool _poppable;
     private bool _useGravity;
@@ -88,6 +90,7 @@ public class Bubble : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         // Destroy this bubble
         _bubbleDeath.Raise();
+        _playerScored.Raise(points);
         gameObject.SetActive(false);
     }
 

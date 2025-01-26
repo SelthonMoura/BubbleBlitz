@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &548608296650527939
+--- !u!1001 &4732603963309047545
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,12 +9,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1894783715779244302, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
+      propertyPath: points
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894783715779244302, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: _gravity
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1894783715779244302, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
-      propertyPath: _initialVelocity.y
-      value: 4
+      propertyPath: _speedMultiplier
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1894783715779244302, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: _childBubbles.Array.size
@@ -31,42 +35,42 @@ PrefabInstance:
     - target: {fileID: 1894783715779244302, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: _childBubbles.Array.data[0].prefab
       value: 
-      objectReference: {fileID: 1676136339519542734, guid: f9375f75463138d4abd7f0e5e4dbf335, type: 3}
+      objectReference: {fileID: 8027530398780475306, guid: 092ea84bd15f43a4197e280ebbc07f9d, type: 3}
     - target: {fileID: 1894783715779244302, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: _childBubbles.Array.data[1].prefab
       value: 
-      objectReference: {fileID: 1676136339519542734, guid: f9375f75463138d4abd7f0e5e4dbf335, type: 3}
+      objectReference: {fileID: 8027530398780475306, guid: 092ea84bd15f43a4197e280ebbc07f9d, type: 3}
     - target: {fileID: 1894783715779244302, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: _childBubbles.Array.data[0].initialVelocity.x
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 1894783715779244302, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: _childBubbles.Array.data[0].initialVelocity.y
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1894783715779244302, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: _childBubbles.Array.data[1].initialVelocity.x
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1894783715779244302, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: _childBubbles.Array.data[1].initialVelocity.y
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3589572707829757268, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 715d80638ba2ac54ea3dce4b49f7eaf1, type: 2}
+      objectReference: {fileID: 2100000, guid: e9e025853239886489e10f33b65231e6, type: 2}
     - target: {fileID: 7564508106564703081, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: m_Name
-      value: Grav2Bubble
+      value: Grav4Bubble
       objectReference: {fileID: 0}
     - target: {fileID: 8065529099098440237, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8065529099098440237, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8065529099098440237, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: m_LocalScale.z

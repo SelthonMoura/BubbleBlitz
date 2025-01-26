@@ -151,7 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd794847784430943a8a56e77ca6eda5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lives: 3
   _playerStats: {fileID: 11400000, guid: 019cbd2385bf69e4b881256ffb8d4f04, type: 2}
   _spriteRenderer: {fileID: 555209125726343509}
   _animator: {fileID: 3291001599541375346}
@@ -160,8 +159,11 @@ MonoBehaviour:
   _itemList: {fileID: 11400000, guid: 4fb943a370cd37342a4f516829ee95c2, type: 2}
   _playerTakeDamageTrigger: {fileID: 11400000, guid: 512842ab5e10efd44af000bcc04cc3b3, type: 2}
   _useBombEvent: {fileID: 11400000, guid: 7755de8747974a0479bf790628781dff, type: 2}
+  _updatePlayerUI: {fileID: 11400000, guid: cadff5aed161acf4bb5a46b2e908d0c2, type: 2}
   _buyItemEvent:
     event: {fileID: 11400000, guid: cdd88bbb97651294785af6b8cc56cb0d, type: 2}
+  _playerScoredEvent:
+    event: {fileID: 11400000, guid: 0925a3d53ac03ca45b5322d049e4b77a, type: 2}
   _groundLayer:
     serializedVersion: 2
     m_Bits: 192
