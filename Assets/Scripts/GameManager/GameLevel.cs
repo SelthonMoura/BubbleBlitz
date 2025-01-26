@@ -21,4 +21,5 @@ public class GameLevel
     public GameObject level;
     public Transform playerPosition;
     public List<Wave> waves;
+    public int popsRequired;
 }

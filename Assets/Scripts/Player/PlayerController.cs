@@ -18,12 +18,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameEventListener<CustomEvent<int>> _playerScoredEvent;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private float _jumpForce = 10f;
+    [SerializeField] private GameObject _shieldEffect;
 
     private bool _climbing = false;
     private bool _touchingLadder = false;
     private bool _isGrounded = false;
     private float _ladderClimb = 0;
     private Collider2D _closestLadder;
+    private GameEventListener<CustomEvent> _updatePlayerUIListener;
 
     private void Awake()
     {
@@ -33,18 +35,30 @@ public class PlayerController : MonoBehaviour
         _playerStats.hasShield = false;
         _buyItemEvent.AddListener<int>(BuyItem);
         _playerScoredEvent.AddListener<int>(PlayerScored);
+        _updatePlayerUIListener = new GameEventListener<CustomEvent>
+        {
+            @event = _updatePlayerUI
+        };
+        _updatePlayerUIListener.AddListener(OnPlayerStatChange);
+    }
+
+    private void OnPlayerStatChange()
+    {
+        _shieldEffect.SetActive(_playerStats.hasShield);
     }
 
     private void OnDestroy()
     {
         _buyItemEvent.RemoveListener<int>(BuyItem);
         _playerScoredEvent.RemoveListener<int>(PlayerScored);
+        _updatePlayerUIListener.RemoveListener(OnPlayerStatChange);
     }
 
     private void BuyItem(int itemIndex)
     {
         ItemSO item = _itemList.items[itemIndex];
         item.ApplyEffect(_playerStats);
+        _updatePlayerUI.Raise();
     }
 
     private void Update()

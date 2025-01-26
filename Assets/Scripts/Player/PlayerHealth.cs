@@ -38,6 +38,7 @@ public class PlayerHealth : MonoBehaviour
         {
             _playerStats.hasShield = false;
             _invincibilityTimer = 1f;
+            _onUpdatePlayrUITrigger.Raise();
             return;
         }
         AudioSystem.Instance.PlaySFX("Hit");
