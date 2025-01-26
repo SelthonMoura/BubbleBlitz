@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class ShopUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject shopPanel;
 
-    // Update is called once per frame
-    void Update()
+    public void CloseShop()
     {
-        
+        Time.timeScale = 1.0f;
+        shopPanel.SetActive(false);
     }
 }
