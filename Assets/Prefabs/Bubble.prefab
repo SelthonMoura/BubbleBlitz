@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.8, y: 2.3, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -102,15 +102,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 1279181157907079182}
   _childBubbles: []
-  _bounceHeight: 5
   _gravity: -9.81
-  _initialVelocity: {x: 4, y: 0}
+  _bounceHeight: 5
+  _initialVelocity: {x: 4, y: 4}
+  _speedMultiplier: 1
   bulletHit:
     event: {fileID: 11400000, guid: 3586ce0e65f99fb458cca591cd2a08ad, type: 2}
   bombUsed:
     event: {fileID: 11400000, guid: 7755de8747974a0479bf790628781dff, type: 2}
   _removeBullet: {fileID: 11400000, guid: 5fb7d699da3feeb4dbaf9460ed01ccff, type: 2}
-  _bubbleSpawn: {fileID: 11400000, guid: d181e6eb376aa6f4fa18f074077db3bf, type: 2}
   _bubbleDeath: {fileID: 11400000, guid: a9d568ff5a88fb242a22024cd4d38b23, type: 2}
 --- !u!58 &1520305916603968079
 CircleCollider2D:

@@ -55,18 +55,18 @@ PrefabInstance:
     - target: {fileID: 3589572707829757268, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e9e025853239886489e10f33b65231e6, type: 2}
+      objectReference: {fileID: 2100000, guid: 73ee16405be8adc4ebcd2877531f88c4, type: 2}
     - target: {fileID: 7564508106564703081, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: m_Name
-      value: Grav4Bubble
+      value: Grav8Bubble
       objectReference: {fileID: 0}
     - target: {fileID: 8065529099098440237, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: m_LocalScale.x
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8065529099098440237, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: m_LocalScale.y
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8065529099098440237, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: m_LocalScale.z

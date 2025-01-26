@@ -57,3 +57,11 @@ MonoBehaviour:
     componentType: Bubble
   - prefab: {fileID: 982932664995295460, guid: cc1a81d1ec05cad4290aaf2279f02814, type: 3}
     componentType: Bubble
+  - prefab: {fileID: 982932664995295460, guid: 7fb7c698233a7de4aab2a27184afbc84, type: 3}
+    componentType: Bubble
+  - prefab: {fileID: 1676136339519542734, guid: f9375f75463138d4abd7f0e5e4dbf335, type: 3}
+    componentType: Bubble
+  - prefab: {fileID: 8027530398780475306, guid: 092ea84bd15f43a4197e280ebbc07f9d, type: 3}
+    componentType: Bubble
+  - prefab: {fileID: 2978882876746902928, guid: fc4276acd964162418aaba00b25d2f1a, type: 3}
+    componentType: Bubble

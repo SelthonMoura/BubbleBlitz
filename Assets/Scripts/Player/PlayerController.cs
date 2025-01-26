@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private int _lives;
     [SerializeField] private PlayerStats _playerStats;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Animator _animator;
@@ -27,7 +26,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _playerStats.speed = _playerStats.baseSpeed;
-        _playerStats.extraLives = 2;
         _playerStats.bombs = 0;
         _playerStats.canJump = false;
         _playerStats.hasShield = false;
@@ -77,13 +75,17 @@ public class PlayerController : MonoBehaviour
 
             var hits = Physics2D.BoxCastAll(transform.position, new Vector2(0.6f, 0.6f), 0, inputVector, 0f);
             _animator.SetBool("Walking", inputVector.magnitude > 0&&_isGrounded);
+            _animator.SetBool("Climbing", false);
             if (!Array.Exists(hits, o => o.transform.CompareTag("Ground")))
                 _rb.velocity = new Vector2(inputVector.x * _playerStats.speed, _rb.velocity.y);
         }
         else
         {
             if (_touchingLadder)
+            {
+                _animator.SetBool("Climbing", true);
                 transform.position = new Vector3(_closestLadder.bounds.center.x, _closestLadder.bounds.min.y + _collider.bounds.size.y / 2 + _ladderClimb * _closestLadder.bounds.size.y);
+            }
         }
     }
 

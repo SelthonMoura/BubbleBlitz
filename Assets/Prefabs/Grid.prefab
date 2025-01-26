@@ -1168,7 +1168,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.03529412, g: 0.09019608, b: 0.1254902, a: 1}
   m_Origin: {x: -16, y: -9, z: 0}
   m_Size: {x: 32, y: 19, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -1420,6 +1420,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 18}
   m_EdgeRadius: 0
+--- !u!1 &5287392603802437360
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4946873189896118765}
+  m_Layer: 0
+  m_Name: PlayerPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4946873189896118765
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5287392603802437360}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4725601581952241765}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5321718037434539850
 GameObject:
   m_ObjectHideFlags: 0
@@ -1528,6 +1559,7 @@ Transform:
   m_Children:
   - {fileID: 5932138665103664731}
   - {fileID: 4887504155822532805}
+  - {fileID: 4946873189896118765}
   m_Father: {fileID: 8791901874232022077}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7212380590136646095
@@ -1606,7 +1638,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.03529412, g: 0.09019608, b: 0.1254902, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1816,10 +1848,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 877429db19d2a9649971db60563f9bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levels: []
+  _player: {fileID: 0}
+  _bubblePrefabs:
+  - {fileID: 7564508106564703081, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
+  - {fileID: 982932664995295460, guid: cc1a81d1ec05cad4290aaf2279f02814, type: 3}
+  - {fileID: 982932664995295460, guid: 7fb7c698233a7de4aab2a27184afbc84, type: 3}
+  - {fileID: 982932664995295460, guid: a0c9f90c5cd9818438c7bb48e7022018, type: 3}
+  - {fileID: 1676136339519542734, guid: f9375f75463138d4abd7f0e5e4dbf335, type: 3}
+  - {fileID: 8027530398780475306, guid: 092ea84bd15f43a4197e280ebbc07f9d, type: 3}
+  - {fileID: 2978882876746902928, guid: fc4276acd964162418aaba00b25d2f1a, type: 3}
+  - {fileID: 0}
+  _levels:
+  - level: {fileID: 5677137737252799087}
+    playerPosition: {fileID: 4946873189896118765}
+    waves:
+    - spawns:
+      - bubble: 2
+        positionX: 0
+      secondsToNext: 5
+    - spawns:
+      - bubble: 2
+        positionX: 0
+      secondsToNext: 20
+  - level: {fileID: 5677137737252799087}
+    playerPosition: {fileID: 4946873189896118765}
+    waves:
+    - spawns: []
+      secondsToNext: 0
   _screenText: {fileID: 0}
-  _bubbleSpawnEvent:
-    event: {fileID: 11400000, guid: d181e6eb376aa6f4fa18f074077db3bf, type: 2}
   _bubbleDeathEvent:
     event: {fileID: 11400000, guid: a9d568ff5a88fb242a22024cd4d38b23, type: 2}
   _restartLevelEvent:
@@ -1828,7 +1884,3 @@ MonoBehaviour:
     event: {fileID: 11400000, guid: 4e601f052ce71ec49b5777e9c7fe334d, type: 2}
   _resumeTimeEvent:
     event: {fileID: 11400000, guid: e01ef46ffc7d31c4aad567ca1963e80e, type: 2}
-  _currentLevel: 1
-  _currentXPAmount: 0
-  _XPToNextLevel: 50
-  _bubbleCount: 0

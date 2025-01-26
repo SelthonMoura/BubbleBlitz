@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private GameEvent _onStopTimeTrigger;
     [SerializeField] private GameEvent _onResumeTimeTrigger;
     [SerializeField] private float _damageDelay;
-    private bool _canTakeDamage;
+    private float _invincibilityTimer;
 
     private void Start()
     {
@@ -26,8 +26,21 @@ public class PlayerHealth : MonoBehaviour
         _onPlayerTakeDamageEvent.RemoveListener(PlayerTakeDamage);
     }
 
+    private void Update()
+    {
+        if(_invincibilityTimer > 0)
+            _invincibilityTimer -= Time.deltaTime;
+    }
+
     private void PlayerTakeDamage()
     {
+        if(_playerStats.hasShield||_invincibilityTimer>0)
+        {
+            _playerStats.hasShield = false;
+            _invincibilityTimer = 1f;
+            return;
+        }
+
         _playerStats.currentHp -= 1;
 
         StartCoroutine(DamageCoroutine());

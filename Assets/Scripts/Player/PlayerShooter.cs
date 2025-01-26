@@ -7,6 +7,7 @@ public class PlayerShooter : MonoBehaviour
 {
     [SerializeField] private WeaponStats _weaponStats;
     [SerializeField] private ItemList _itemList;
+    [SerializeField] private Animator _playerAnimator;
     [SerializeField] private GameEventListener<CustomEvent<int>> _weaponChangeEvent;
     private List<Bullet> _bullets = new List<Bullet>();
     private float _cooldown;
@@ -62,6 +63,7 @@ public class PlayerShooter : MonoBehaviour
     private void Shoot()
     {
         if (_cooldown > 0) return;
+        _playerAnimator.SetTrigger("Shoot");
         _cooldown = 1f / _weaponStats.fireRate;
         for (var i = 0; i < _weaponStats.bulletAmount; i++)
         {

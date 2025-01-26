@@ -15,7 +15,7 @@ public class ItemSO: ScriptableObject
 
     public void ApplyEffect(PlayerStats playerStats)
     {
-        playerStats.extraLives += extraLives;
+        playerStats.currentHp += extraLives;
         playerStats.speed += speedModifier;
         playerStats.canJump = canJump || playerStats.canJump; // Keeps jump ability if true
         playerStats.bombs += bombs;

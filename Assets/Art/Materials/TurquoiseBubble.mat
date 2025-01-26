@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CyanBubble
+  m_Name: TurquoiseBubble
   m_Shader: {fileID: -6465566751694194690, guid: be351aeb3877e924d9b7504eeee6d25f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -54,8 +54,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Contrast: 1
-    - _HueShift: 0.95
+    - _Contrast: 2
+    - _HueShift: 0.85
     - _Saturation: 1
     m_Colors: []
   m_BuildTextureStacks: []

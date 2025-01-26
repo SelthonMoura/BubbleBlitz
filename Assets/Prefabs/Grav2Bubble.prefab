@@ -38,19 +38,19 @@ PrefabInstance:
       objectReference: {fileID: 1676136339519542734, guid: f9375f75463138d4abd7f0e5e4dbf335, type: 3}
     - target: {fileID: 1894783715779244302, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: _childBubbles.Array.data[0].initialVelocity.x
-      value: -6
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 1894783715779244302, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: _childBubbles.Array.data[0].initialVelocity.y
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1894783715779244302, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: _childBubbles.Array.data[1].initialVelocity.x
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1894783715779244302, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: _childBubbles.Array.data[1].initialVelocity.y
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3589572707829757268, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -62,11 +62,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8065529099098440237, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8065529099098440237, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8065529099098440237, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: m_LocalScale.z

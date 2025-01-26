@@ -14,14 +14,15 @@ public class Bubble : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private ChildBubble[] _childBubbles; // Prefabs for child bubbles
-    [SerializeField] private float _bounceHeight = 5f; // Desired maximum height
     [SerializeField] private float _gravity = -9.81f; // Simulated gravity
+    [SerializeField] private float _bounceHeight = 5f; // Desired maximum height
     [SerializeField] private Vector2 _initialVelocity = new Vector2(2f, 5f); // Initial velocity (x and y)
+    [SerializeField] private float _speedMultiplier;
     [SerializeField] private GameEventListener<CustomEvent<object, Bullet>> bulletHit;
     [SerializeField] private GameEventListener<CustomEvent> bombUsed;
     [SerializeField] private GameEvent _removeBullet;
-    [SerializeField] private GameEvent _bubbleSpawn;
     [SerializeField] private GameEvent _bubbleDeath;
+    private bool _spawning;
     private bool _poppable;
     private bool _useGravity;
     private bool _popping;
@@ -40,7 +41,6 @@ public class Bubble : MonoBehaviour
         _poppable = false;
         yield return new WaitForSeconds(0.2f);
         _poppable = true;
-        _bubbleSpawn.Raise();
     }
 
     private void OnEnable()
@@ -64,6 +64,7 @@ public class Bubble : MonoBehaviour
     {
         if ((object)transform != hit) return;
         if (!_poppable) return;
+        if (_spawning) return;
         StartCoroutine(PopBubbleSequence(bullet));
     }
 
@@ -102,7 +103,7 @@ public class Bubble : MonoBehaviour
                 Bubble childBubble = (Bubble)PoolManager.Instance.ReuseComponent(child.prefab, transform.position, Quaternion.identity);
                 if (child.initialVelocity != Vector2.zero)
                 {
-                    childBubble.transform.Translate(child.initialVelocity/10f);
+                    childBubble.transform.Translate(child.initialVelocity.normalized/2f);
                     childBubble.SetVelocity(child.initialVelocity);
                 }
                 // Pass remaining damage to child bubbles
@@ -111,24 +112,32 @@ public class Bubble : MonoBehaviour
         }
         if(_popping) return;
         // Destroy this bubble
-        if (!_poppable)
-            _bubbleSpawn.Raise();
         _bubbleDeath.Raise();
         gameObject.SetActive(false);
     }
 
     private void FixedUpdate()
     {
+        if (_spawning)
+        {
+            transform.position += 1.5f * Time.fixedDeltaTime * Vector3.down;
+            if (transform.position.y < 6.4f) {
+                _spawning = false;
+                _velocity = _initialVelocity;
+            }
+            return;
+        }
         // Apply custom gravity
         if(_useGravity)
-            _velocity += new Vector2(0, _gravity * Time.fixedDeltaTime);
+            _velocity += new Vector2(0, _gravity * Time.fixedDeltaTime * _speedMultiplier);
 
         // Update the position based on velocity
-        transform.position += (Vector3)(_velocity * Time.fixedDeltaTime);
+        transform.position += (Vector3)(_velocity * Time.fixedDeltaTime * _speedMultiplier);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (_spawning) return;
         if (collision.CompareTag("Ground"))
         {
             // Get the contact point normal
@@ -137,7 +146,7 @@ public class Bubble : MonoBehaviour
             if (Mathf.Abs(collisionNormal.y) > Mathf.Abs(collisionNormal.x))
             {
                 // Vertical collision (top or bottom of the ground)
-                if(_gravity==0)
+                if (_gravity == 0)
                     _velocity = new Vector2(_velocity.x, -_velocity.y);
                 else
                 {
@@ -151,6 +160,11 @@ public class Bubble : MonoBehaviour
                 _velocity = new Vector2(-_velocity.x, _velocity.y);
             }
         }
+    }
+
+    public void SetSpawning(bool spawning)
+    {
+        _spawning = spawning;
     }
 
     private void SetVelocity(Vector2 velocity)

@@ -17,7 +17,7 @@ MonoBehaviour:
   weaponPrice: 400
   inflation: 200
   damage: 1
-  fireRate: 3
+  fireRate: 5
   shotSpeed: 25
   pierce: 0
   bulletAmount: 1

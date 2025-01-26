@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 751614794012100944}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.8, z: 0}
+  m_LocalPosition: {x: 0, y: -1.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponStats: {fileID: 11400000, guid: ba70611cf4318cd4f93f34368c23e477, type: 2}
   _itemList: {fileID: 11400000, guid: 4fb943a370cd37342a4f516829ee95c2, type: 2}
+  _playerAnimator: {fileID: 3291001599541375346}
   _weaponChangeEvent:
     event: {fileID: 11400000, guid: 1923fabfcd2302843b5012c4d2f6ce98, type: 2}
 --- !u!1 &1435532550522312335
@@ -126,7 +127,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: -241843641, guid: 445ce3a65b3ca6744b163f26ae2782cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
