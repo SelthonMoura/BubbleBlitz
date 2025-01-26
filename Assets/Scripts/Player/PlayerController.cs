@@ -13,7 +13,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ItemList _itemList;
     [SerializeField] private GameEvent _playerTakeDamageTrigger;
     [SerializeField] private GameEvent _useBombEvent;
+    [SerializeField] private GameEvent _updatePlayerUI;
     [SerializeField] private GameEventListener<CustomEvent<int>> _buyItemEvent;
+    [SerializeField] private GameEventListener<CustomEvent<int>> _playerScoredEvent;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private float _jumpForce = 10f;
 
@@ -30,11 +32,13 @@ public class PlayerController : MonoBehaviour
         _playerStats.canJump = false;
         _playerStats.hasShield = false;
         _buyItemEvent.AddListener<int>(BuyItem);
+        _playerScoredEvent.AddListener<int>(PlayerScored);
     }
 
     private void OnDestroy()
     {
         _buyItemEvent.RemoveListener<int>(BuyItem);
+        _playerScoredEvent.RemoveListener<int>(PlayerScored);
     }
 
     private void BuyItem(int itemIndex)
@@ -136,5 +140,11 @@ public class PlayerController : MonoBehaviour
         {
             _touchingLadder = false;
         }
+    }
+
+    private void PlayerScored(int points)
+    {
+        _playerStats.score += points;
+        _updatePlayerUI.Raise();
     }
 }
