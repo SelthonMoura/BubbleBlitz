@@ -27,11 +27,11 @@ PrefabInstance:
     - target: {fileID: 1894783715779244302, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: _childBubbles.Array.data[0].prefab
       value: 
-      objectReference: {fileID: 982932664995295460, guid: cc1a81d1ec05cad4290aaf2279f02814, type: 3}
+      objectReference: {fileID: 982932664995295460, guid: 7fb7c698233a7de4aab2a27184afbc84, type: 3}
     - target: {fileID: 1894783715779244302, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: _childBubbles.Array.data[1].prefab
       value: 
-      objectReference: {fileID: 982932664995295460, guid: cc1a81d1ec05cad4290aaf2279f02814, type: 3}
+      objectReference: {fileID: 982932664995295460, guid: 7fb7c698233a7de4aab2a27184afbc84, type: 3}
     - target: {fileID: 1894783715779244302, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: _childBubbles.Array.data[0].initialVelocity.x
       value: -4
