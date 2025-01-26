@@ -1800,6 +1800,7 @@ GameObject:
   - component: {fileID: 8791901874232022077}
   - component: {fileID: 3027648763926561993}
   - component: {fileID: 8705821824507749565}
+  - component: {fileID: 7839065540238027792}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -1884,3 +1885,16 @@ MonoBehaviour:
     event: {fileID: 11400000, guid: 4e601f052ce71ec49b5777e9c7fe334d, type: 2}
   _resumeTimeEvent:
     event: {fileID: 11400000, guid: e01ef46ffc7d31c4aad567ca1963e80e, type: 2}
+--- !u!114 &7839065540238027792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8084383295047969074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9e173e5e5b6ff94ea57788c13d21e26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BGMName: GameTheme

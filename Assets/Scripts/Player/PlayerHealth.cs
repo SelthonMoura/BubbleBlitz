@@ -40,7 +40,7 @@ public class PlayerHealth : MonoBehaviour
             _invincibilityTimer = 1f;
             return;
         }
-
+        AudioSystem.Instance.PlaySFX("Hit");
         _playerStats.currentHp -= 1;
 
         StartCoroutine(DamageCoroutine());

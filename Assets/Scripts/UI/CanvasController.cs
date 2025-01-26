@@ -19,6 +19,8 @@ public class CanvasController : MonoBehaviour
 
     private void ShowGameOverPanel()
     {
+        AudioSystem.Instance.StopBackgroundMusic();
+        AudioSystem.Instance.PlaySFX("GameOver");
         _gameOverPanel.SetActive(true);
     }
 }

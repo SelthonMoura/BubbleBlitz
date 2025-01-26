@@ -77,6 +77,7 @@ public class Bubble : MonoBehaviour
         _velocity = Vector2.zero;
         _useGravity = false;
         _animator.SetTrigger("Pop");
+        AudioSystem.Instance.PlaySFX("BubblePop");
         // Recursive popping based on bullet damage
         if (bullet != null)
         {
@@ -145,7 +146,7 @@ public class Bubble : MonoBehaviour
         {
             // Get the contact point normal
             Vector2 collisionNormal = (collision.ClosestPoint(transform.position) - (Vector2)transform.position).normalized;
-
+            AudioSystem.Instance.PlaySFX("BubbleBounce");
             if (Mathf.Abs(collisionNormal.y) > Mathf.Abs(collisionNormal.x))
             {
                 // Vertical collision (top or bottom of the ground)

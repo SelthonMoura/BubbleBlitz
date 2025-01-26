@@ -22,4 +22,5 @@ public class WeaponStats : ScriptableObject
     public int bulletLimit;
     public bool aimed;
     public bool persistLine;
+    public string shotSFX;
 }

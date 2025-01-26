@@ -64,6 +64,7 @@ public class PlayerShooter : MonoBehaviour
     {
         if (_cooldown > 0) return;
         _playerAnimator.SetTrigger("Shoot");
+        AudioSystem.Instance.PlaySFX(_weaponStats.shotSFX);
         _cooldown = 1f / _weaponStats.fireRate;
         for (var i = 0; i < _weaponStats.bulletAmount; i++)
         {

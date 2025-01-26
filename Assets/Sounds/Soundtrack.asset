@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c2565cf2182d149838c74486899c3a, type: 3}
+  m_Name: Soundtrack
+  m_EditorClassIdentifier: 
+  _mixer: {fileID: 24100000, guid: 7b1b3e97d813d6c4ca76a9cd59149d63, type: 2}
+  _sounds:
+  - name: BubblePop
+    clips:
+    - {fileID: 8300000, guid: 3c763efb293f0934b9952b925b0bc3cc, type: 3}
+    - {fileID: 8300000, guid: fff9e4845f284964089f09f5285ea557, type: 3}
+    - {fileID: 8300000, guid: 99d6a38c28ec6964884688876c1211d6, type: 3}
+    - {fileID: 8300000, guid: 85e8192c3048ab64e92369b15a007af9, type: 3}
+    - {fileID: 8300000, guid: 7ba811a0723e6fe4892303a620549e3d, type: 3}
+    - {fileID: 8300000, guid: a4cf9f469b079214ea35f9d37837ad6c, type: 3}
+    - {fileID: 8300000, guid: c6486175bfaa4ef4bb632d0148d570c5, type: 3}
+    - {fileID: 8300000, guid: ffe836118a4d006499e436c309e57482, type: 3}
+    - {fileID: 8300000, guid: 1828fb8a7730edd4c865ae1bca9e65d9, type: 3}
+    - {fileID: 8300000, guid: 777677f3d930c2b4f8e722482dfa3485, type: 3}
+    mixerGroup: SFX
+  - name: BubbleBounce
+    clips:
+    - {fileID: 8300000, guid: 712f93af108b0ff4ca004fb6f42ad2e6, type: 3}
+    mixerGroup: SFX
+  - name: ButtonClick
+    clips:
+    - {fileID: 8300000, guid: 4773f8e57fadad94e83dd334b9822ed9, type: 3}
+    mixerGroup: SFX
+  - name: Harpoon
+    clips:
+    - {fileID: 8300000, guid: 2455ede110f7ef24e89435f3ad11006a, type: 3}
+    mixerGroup: SFX
+  - name: PowerWire
+    clips:
+    - {fileID: 8300000, guid: b9d9c97b7c3cf464a9879b198de2df45, type: 3}
+    mixerGroup: SFX
+  - name: VulcanShot
+    clips:
+    - {fileID: 8300000, guid: 07c1da1278cd20e42b4d5aa39c3d21a2, type: 3}
+    - {fileID: 8300000, guid: 31bad94250b258643a60c8c078ac6a32, type: 3}
+    - {fileID: 8300000, guid: 0453a7c7279480f48a0f35b3228fbdb9, type: 3}
+    - {fileID: 8300000, guid: 56b373847a65225498778aa959624c16, type: 3}
+    mixerGroup: SFX
+  - name: WaterPulse
+    clips:
+    - {fileID: 8300000, guid: f68fc9699dde82842b8859ed52bf96bb, type: 3}
+    mixerGroup: SFX
+  - name: Hit
+    clips:
+    - {fileID: 8300000, guid: 40efa740243d13347ad39789d26fea25, type: 3}
+    mixerGroup: SFX
+  - name: GameOver
+    clips:
+    - {fileID: 8300000, guid: 673c8cdb3ae1b1748a8c7a698bfe4e58, type: 3}
+    mixerGroup: SFX
+  - name: MenuTheme
+    clips:
+    - {fileID: 8300000, guid: 542bb7f9edc127340a2062bf268b91bf, type: 3}
+    mixerGroup: BGM
+  - name: GameTheme
+    clips:
+    - {fileID: 8300000, guid: 3648519b2e46f4646a21a68b8c74899f, type: 3}
+    mixerGroup: BGM

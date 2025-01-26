@@ -24,3 +24,4 @@ MonoBehaviour:
   bulletLimit: 1
   aimed: 0
   persistLine: 0
+  shotSFX: Harpoon

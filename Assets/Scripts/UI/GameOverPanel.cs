@@ -12,6 +12,7 @@ public class GameOverPanel : MonoBehaviour
 
     public void RestartGameButton()
     {
+        AudioSystem.Instance.StopAllSFX();
         _playerStatsSO.ResetStats();
         _resumeTimeTrigger.Raise();
         SceneManager.LoadScene(_firstLevelScene);
