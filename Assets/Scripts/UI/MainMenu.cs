@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private string _firstLevelScene;
     [SerializeField] private GameObject _mainMenuPanel;
     [SerializeField] private GameObject _creditsPanel;
+    [SerializeField] private GameObject _exitPanel;
     [SerializeField] private Animator _anim;
 
     public void PlayGame()
@@ -35,7 +36,19 @@ public class MainMenu : MonoBehaviour
         _anim.SetTrigger("CloseSettings");
     }
 
-    public void ExitGameButton()
+    public void OpenExitPanel()
+    {
+        _exitPanel.SetActive(true);
+        _mainMenuPanel.SetActive(false);
+    }
+
+    public void CloseExitPanel()
+    {
+        _exitPanel.SetActive(false);
+        _mainMenuPanel.SetActive(true);
+    }
+
+    public void ExitGame()
     {
         Application.Quit();
     }
