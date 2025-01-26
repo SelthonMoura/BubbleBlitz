@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 [System.Serializable]
 public struct ChildBubble
@@ -127,7 +128,10 @@ public class Bubble : MonoBehaviour
             transform.position += 1.5f * Time.fixedDeltaTime * Vector3.down;
             if (transform.position.y < 6.4f) {
                 _spawning = false;
-                _velocity = _initialVelocity;
+                if(transform.position.x<0)
+                    _velocity = _initialVelocity;
+                else
+                    _velocity = new Vector2(-_initialVelocity.x, _initialVelocity.y);
             }
             return;
         }
