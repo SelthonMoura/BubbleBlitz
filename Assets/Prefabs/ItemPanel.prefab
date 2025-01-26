@@ -431,11 +431,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be8fe3b1b2bdae418c4cfa5979c5617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponStats: {fileID: 11400000, guid: b369651698f874045bde892d05348dc1, type: 2}
-  weaponImage: {fileID: 3756699884514193184}
-  weaponName: {fileID: 5532933413931319824}
-  weaponPrice: {fileID: 3589916084888279435}
+  _playerStats: {fileID: 11400000, guid: 019cbd2385bf69e4b881256ffb8d4f04, type: 2}
+  gameEvent: {fileID: 0}
+  updateUI: {fileID: 11400000, guid: cadff5aed161acf4bb5a46b2e908d0c2, type: 2}
+  eventRaiseID: 0
+  itemImage: {fileID: 0}
+  itemPrice: {fileID: 0}
   currentPrice: 0
+  inflation: 0
 --- !u!1 &7919526242357417136
 GameObject:
   m_ObjectHideFlags: 0

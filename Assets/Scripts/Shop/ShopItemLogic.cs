@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class ShopItemLogic : MonoBehaviour
 {
+    [SerializeField] private PlayerStats _playerStats;
     public GameEvent gameEvent;
+    public GameEvent updateUI;
     public int eventRaiseID;
 
     public Image itemImage;
@@ -23,11 +25,16 @@ public class ShopItemLogic : MonoBehaviour
 
     public void BuyLogic()
     {
-        if( currentPrice <= 100000)
+        if(currentPrice <= 100000)
         {
-            currentPrice += inflation;
-            itemPrice.text = currentPrice.ToString();
-            gameEvent.Raise(eventRaiseID);
+            if(currentPrice <= _playerStats.score)
+            {
+                _playerStats.score -= currentPrice;
+                updateUI.Raise();
+                currentPrice += inflation;
+                itemPrice.text = currentPrice.ToString();
+                gameEvent.Raise(eventRaiseID);
+            }
         }
     }
 }

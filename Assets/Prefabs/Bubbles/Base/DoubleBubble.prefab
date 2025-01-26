@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1894783715779244302, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
+      propertyPath: points
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894783715779244302, guid: 8276f0fe060f53e44a94513e89299667, type: 3}
       propertyPath: _childBubbles.Array.size
       value: 2
       objectReference: {fileID: 0}

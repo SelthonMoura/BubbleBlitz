@@ -23,4 +23,9 @@ public class PlayerStats : ScriptableObject
         canJump = false;
         hasShield = false;
     }
+
+    public void ResetScore()
+    {
+        score = 0;
+    }
 }
