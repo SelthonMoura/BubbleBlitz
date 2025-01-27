@@ -51,7 +51,7 @@ public class PlayerShooter : MonoBehaviour
         if (_weaponStats == _itemList.weapons[0])
             _playerWeaponText.text = $"{_weaponStats.name}";
         else
-            _playerWeaponText.text = $"{_weaponStats.name} <color=red>{(int)(_uses % 60)}</color>";
+            _playerWeaponText.text = $"{_weaponStats.name} <color=red>{_uses}</color>";
     }
 
     private void ChangeWeapon(int i)
@@ -93,10 +93,9 @@ public class PlayerShooter : MonoBehaviour
             bullet.SetDirection(bullet.transform.up * _weaponStats.shotSpeed);
             bullet.SetWeaponStats(_weaponStats);
         }
-        _uses--;
-        if (_uses >= 0 && _weaponStats != _itemList.weapons[0])
+        if (_uses >= 0)
             _uses--;
-        else
+        else if(_weaponStats != _itemList.weapons[0])
         {
             ChangeWeapon(0);
             _uses = 0;

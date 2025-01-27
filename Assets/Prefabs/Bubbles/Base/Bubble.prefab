@@ -104,7 +104,7 @@ MonoBehaviour:
   _childBubbles: []
   _gravity: -9.81
   _bounceHeight: 5
-  _initialVelocity: {x: 4, y: 4}
+  _initialVelocity: {x: -4, y: 4}
   _speedMultiplier: 1
   bulletHit:
     event: {fileID: 11400000, guid: 3586ce0e65f99fb458cca591cd2a08ad, type: 2}

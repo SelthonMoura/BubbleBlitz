@@ -39,17 +39,26 @@ public class GameController : MonoBehaviour
             StartCoroutine(LevelLoop());
             yield break;
         }
-        foreach (var spawn in _levels[_currentLevel].waves[_currentWave].spawns)
+        else
         {
-            var bubblePrefab = _bubblePrefabs[(int)spawn.bubble];
-            var bubble = (Bubble)PoolManager.Instance.ReuseComponent(bubblePrefab, new Vector3(spawn.positionX*13, 10, 0), Quaternion.identity);
-            bubble.SetSpawning(true);
+            foreach (var spawn in _levels[_currentLevel].waves[_currentWave].spawns)
+            {
+                var bubblePrefab = _bubblePrefabs[(int)spawn.bubble];
+                var bubble = (Bubble)PoolManager.Instance.ReuseComponent(bubblePrefab, new Vector3(spawn.positionX * 13, 10, 0), Quaternion.identity);
+                bubble.SetSpawning(true);
+            }
+            yield return new WaitForSeconds(_levels[_currentLevel].waves[_currentWave].secondsToNext);
+            if (_dontSpawn)
+            {
+                yield return new WaitForSeconds(1f);
+                StartCoroutine(LevelLoop());
+                yield break;
+            }
+            _currentWave++;
+            if (_currentWave >= _levels[_currentLevel].waves.Count)
+                _currentWave = 0;
+            StartCoroutine(LevelLoop());
         }
-        yield return new WaitForSeconds(_levels[_currentLevel].waves[_currentWave].secondsToNext);
-        _currentWave++;
-        if(_currentWave>= _levels[_currentLevel].waves.Count)
-            _currentWave = 0;
-        StartCoroutine(LevelLoop());
     }
 
     private void OnDestroy()
