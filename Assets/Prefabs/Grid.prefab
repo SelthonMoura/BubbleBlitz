@@ -8637,9 +8637,9 @@ MonoBehaviour:
       secondsToNext: 10
     - spawns:
       - bubble: 6
-        positionX: 0
+        positionX: 0.1
       - bubble: 6
-        positionX: 0
+        positionX: -0.1
       secondsToNext: 10
     - spawns:
       - bubble: 5

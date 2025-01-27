@@ -5438,14 +5438,6 @@ PrefabInstance:
       propertyPath: _screenText
       value: 
       objectReference: {fileID: 1647403039}
-    - target: {fileID: 8705821824507749565, guid: c98dba0a5a9eaef4689a296e95d4d8b7, type: 3}
-      propertyPath: _levels.Array.data[4].waves.Array.data[1].spawns.Array.data[0].positionX
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8705821824507749565, guid: c98dba0a5a9eaef4689a296e95d4d8b7, type: 3}
-      propertyPath: _levels.Array.data[4].waves.Array.data[1].spawns.Array.data[1].positionX
-      value: -0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 8791901874232022077, guid: c98dba0a5a9eaef4689a296e95d4d8b7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
