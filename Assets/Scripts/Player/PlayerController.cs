@@ -27,6 +27,13 @@ public class PlayerController : MonoBehaviour
     private Collider2D _closestLadder;
     private GameEventListener<CustomEvent> _updatePlayerUIListener;
 
+    private void Start()
+    {
+        _playerStats.ResetStats();
+        _playerStats.ResetScore();
+        _updatePlayerUI.Raise();
+    }
+
     private void Awake()
     {
         _playerStats.speed = _playerStats.baseSpeed;

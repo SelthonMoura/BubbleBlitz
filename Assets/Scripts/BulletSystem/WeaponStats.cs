@@ -15,7 +15,7 @@ public class WeaponStats : ScriptableObject
     public int pierce;
     public int bulletAmount;
     public int bulletLimit;
-    public int timer;
+    public int uses;
     public bool aimed;
     public bool persistLine;
     public string shotSFX;

@@ -19,7 +19,7 @@ MonoBehaviour:
   pierce: 0
   bulletAmount: 1
   bulletLimit: 1
-  timer: 20
+  uses: 30
   aimed: 0
   persistLine: 1
   shotSFX: PowerWire

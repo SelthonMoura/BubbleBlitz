@@ -26,8 +26,8 @@ public class PlayerUI : MonoBehaviour
 
     private void UpdateValues()
     {
-        _playerLivesTxt.text = $"<size=42>x</size><color=black>{_playerStats.currentHp}</color>";
+        _playerLivesTxt.text = $"<size=42>x</size><color=green>{_playerStats.currentHp}</color>";
         _playerPoints.text = _playerStats.score + " pts";
-        _playerBombs.text = $"Flash Bomb <size=25>x</size><color=red>{_playerStats.bombs}</color>";
+        _playerBombs.text = $"<size=42>x</size><color=red>{_playerStats.bombs}</color>";
     }
 }

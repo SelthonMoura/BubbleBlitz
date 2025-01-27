@@ -44,6 +44,7 @@ public class AudioSystem : Singleton<AudioSystem>
 
     private void OnSceneUnloaded(Scene currentScene)
     {
+        if(_dontDestroyOnLoad)
         StopAllLoopingSFX();
     }
 

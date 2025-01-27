@@ -19,7 +19,7 @@ MonoBehaviour:
   pierce: 99
   bulletAmount: 1
   bulletLimit: 1
-  timer: 10
+  uses: 15
   aimed: 0
   persistLine: 0
   shotSFX: WaterPulse

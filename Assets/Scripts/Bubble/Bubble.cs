@@ -49,6 +49,7 @@ public class Bubble : MonoBehaviour
     private void OnEnable()
     {
         _useGravity = true;
+        transform.tag = "Enemy";
         StartCoroutine(InitialInvincibility());
     }
 
@@ -75,6 +76,7 @@ public class Bubble : MonoBehaviour
     {
         _poppable = false;
         _popping = true;
+        transform.tag = "Untagged";
         _velocity = Vector2.zero;
         _useGravity = false;
         _animator.SetTrigger("Pop");
@@ -126,7 +128,7 @@ public class Bubble : MonoBehaviour
         if (_spawning)
         {
             transform.position += 1.5f * Time.fixedDeltaTime * Vector3.down;
-            if (transform.position.y < 6.4f) {
+            if (transform.position.y < 6f) {
                 _spawning = false;
                 if(transform.position.x<0)
                     _velocity = _initialVelocity;

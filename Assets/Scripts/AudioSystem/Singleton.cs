@@ -47,7 +47,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     /// <summary>
     /// Optional flag to make the Singleton persist across scenes.
     /// </summary>
-    [SerializeField] private bool _dontDestroyOnLoad = false;
+    [SerializeField] protected bool _dontDestroyOnLoad = false;
 
     /// <summary>
     /// Ensures the Singleton instance is initialized and unique.

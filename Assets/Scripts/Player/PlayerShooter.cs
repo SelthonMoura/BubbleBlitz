@@ -13,7 +13,7 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] private GameEventListener<CustomEvent<int>> _weaponChangeEvent;
     private List<Bullet> _bullets = new List<Bullet>();
     private float _cooldown;
-    [SerializeField] private float _timer;
+    [SerializeField] private int _uses;
     [SerializeField] private TMP_Text _playerWeaponText;
 
     private void Awake()
@@ -38,22 +38,11 @@ public class PlayerShooter : MonoBehaviour
         else if (Input.GetMouseButton(0))
         {
             var activeBullets = _bullets.FindAll(o => o.gameObject.activeSelf);
-            if (_weaponStats.persistLine)
-            {
-                var wiredBullets = activeBullets.FindAll(o => o.GetWired());
-                if(wiredBullets.Count > 0)
-                    wiredBullets[0].gameObject.SetActive(false);
-            }
+            var wiredBullets = activeBullets.FindAll(o => o.GetWired());
+            if(wiredBullets.Count > 0)
+                wiredBullets[0].gameObject.SetActive(false);
             if (activeBullets.Count < _weaponStats.bulletLimit*_weaponStats.bulletAmount)
                 Shoot();
-        }
-
-        if(_timer >= 0 && _weaponStats != _itemList.weapons[0])
-            _timer -= Time.deltaTime;
-        else
-        {
-            ChangeWeapon(0);
-            _timer = 0;
         }
     }
 
@@ -62,13 +51,13 @@ public class PlayerShooter : MonoBehaviour
         if (_weaponStats == _itemList.weapons[0])
             _playerWeaponText.text = $"{_weaponStats.name}";
         else
-            _playerWeaponText.text = $"{_weaponStats.name} <color=red>{(int)(_timer % 60)}</color>";
+            _playerWeaponText.text = $"{_weaponStats.name} <color=red>{(int)(_uses % 60)}</color>";
     }
 
     private void ChangeWeapon(int i)
     {
         _weaponStats = _itemList.weapons[i];
-        _timer = _weaponStats.timer;
+        _uses = _weaponStats.uses;
         if(!_weaponStats.aimed)
             transform.rotation = Quaternion.Euler(0, 0, 0);
     }
@@ -103,6 +92,14 @@ public class PlayerShooter : MonoBehaviour
             bullet.gameObject.SetActive(true);
             bullet.SetDirection(bullet.transform.up * _weaponStats.shotSpeed);
             bullet.SetWeaponStats(_weaponStats);
+        }
+        _uses--;
+        if (_uses >= 0 && _weaponStats != _itemList.weapons[0])
+            _uses--;
+        else
+        {
+            ChangeWeapon(0);
+            _uses = 0;
         }
     }
 }

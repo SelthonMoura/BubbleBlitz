@@ -65,3 +65,7 @@ MonoBehaviour:
     componentType: Bubble
   - prefab: {fileID: 2978882876746902928, guid: fc4276acd964162418aaba00b25d2f1a, type: 3}
     componentType: Bubble
+  - prefab: {fileID: 982932664995295460, guid: a0c9f90c5cd9818438c7bb48e7022018, type: 3}
+    componentType: Bubble
+  - prefab: {fileID: 2978882876746902928, guid: 2867f37ea45509942aa6f3ec8fd90b82, type: 3}
+    componentType: Bubble

@@ -19,7 +19,7 @@ MonoBehaviour:
   pierce: 0
   bulletAmount: 4
   bulletLimit: 2
-  timer: 15
+  uses: 30
   aimed: 0
   persistLine: 0
   shotSFX: VulcanShot

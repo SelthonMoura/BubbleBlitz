@@ -7147,6 +7147,7 @@ GameObject:
   - component: {fileID: 1842336287588830048}
   - component: {fileID: 6563245616596820759}
   - component: {fileID: 5566046923210490019}
+  - component: {fileID: 3091124998631923080}
   m_Layer: 0
   m_Name: SettingsPanel
   m_TagString: Untagged
@@ -7218,6 +7219,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3091124998631923080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4380213293071667697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8cd7e6bd6d4ff2428a55eb52dc284fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterVolumeSlider: {fileID: 2944928373767713413}
+  bgmVolumeSlider: {fileID: 8935184709020742946}
+  sfxVolumeSlider: {fileID: 5968072565639290799}
 --- !u!1 &4776516129235755772
 GameObject:
   m_ObjectHideFlags: 0

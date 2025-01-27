@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
     private int _currentLevel = 0;
     private int _currentWave = 0;
     private int _currentXPAmount = 0;
+    private bool _dontSpawn;
 
     private void Start()
     {
@@ -32,7 +33,13 @@ public class GameController : MonoBehaviour
 
     private IEnumerator LevelLoop()
     {
-        foreach(var spawn in _levels[_currentLevel].waves[_currentWave].spawns)
+        if (_dontSpawn)
+        {
+            yield return new WaitForSeconds(1f);
+            StartCoroutine(LevelLoop());
+            yield break;
+        }
+        foreach (var spawn in _levels[_currentLevel].waves[_currentWave].spawns)
         {
             var bubblePrefab = _bubblePrefabs[(int)spawn.bubble];
             var bubble = (Bubble)PoolManager.Instance.ReuseComponent(bubblePrefab, new Vector3(spawn.positionX*13, 10, 0), Quaternion.identity);
@@ -61,8 +68,9 @@ public class GameController : MonoBehaviour
 
     private IEnumerator NextLevel()
     {
-        _screenText.text = "FASE COMPLETA!";
+        _screenText.text = "STAGE COMPLETE!";
         _screenText.gameObject.SetActive(true);
+        _dontSpawn = true;
 
         foreach (var bubble in FindObjectsOfType<Bubble>())
         {
@@ -71,12 +79,16 @@ public class GameController : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(2f);
 
+
         _screenText.gameObject.SetActive(false);
         _levels[_currentLevel].level.SetActive(false);
 
         if((_currentLevel + 1) < _levels.Count)
         {
             _currentLevel++;
+            _currentWave = 0;
+            _currentXPAmount = 0;
+            _dontSpawn = false;
             _player.transform.position = _levels[_currentLevel].playerPosition.transform.position;
             _levels[_currentLevel].level.SetActive(true);
         }
