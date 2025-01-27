@@ -11,6 +11,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _exitPanel;
     [SerializeField] private Animator _anim;
     [SerializeField] private ItemPriceSO[] _itemPriceSOs;
+    [SerializeField] private CurrentLevelSO _currentLevelSO;
+    [SerializeField] private PlayerStats _playerStats;
 
     public void PlayGame()
     {
@@ -20,6 +22,10 @@ public class MainMenu : MonoBehaviour
         {
             _itemPriceSOs[i].ResetInflation();
         }
+
+        _currentLevelSO.currentLevelIndex = 0;
+        _playerStats.ResetStats();
+        _playerStats.ResetScore();
     }
 
     public void ShowCredits()

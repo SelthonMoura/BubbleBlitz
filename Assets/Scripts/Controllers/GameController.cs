@@ -15,7 +15,9 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameEventListener<CustomEvent> _restartLevelEvent;
     [SerializeField] private GameEventListener<CustomEvent> _stopTimeEvent;
     [SerializeField] private GameEventListener<CustomEvent> _resumeTimeEvent;
+    [SerializeField] private GameEventListener<CustomEvent> _gameOverEvent;
     [SerializeField] private GameEvent _gameWinTrigger;
+    [SerializeField] private CurrentLevelSO _currentLevelSO;
     private int _currentLevel = 0;
     private int _currentWave = 0;
     private int _currentXPAmount = 0;
@@ -27,6 +29,10 @@ public class GameController : MonoBehaviour
         _restartLevelEvent.AddListener(RestartLevel);
         _stopTimeEvent.AddListener(StopTime);
         _resumeTimeEvent.AddListener(RestartTime);
+        _gameOverEvent.AddListener(ResetCurrentLevelIndex);
+
+        _currentLevel = _currentLevelSO.currentLevelIndex;
+        _levels[_currentLevel].level.SetActive(true);
 
         StartCoroutine(LevelLoop());
     }
@@ -67,6 +73,7 @@ public class GameController : MonoBehaviour
         _restartLevelEvent.RemoveListener(RestartLevel);
         _stopTimeEvent.RemoveListener(StopTime);
         _resumeTimeEvent.RemoveListener(RestartTime);
+        _gameOverEvent.RemoveListener(ResetCurrentLevelIndex);
     }
     private void BubbleCountDown()
     {
@@ -95,6 +102,7 @@ public class GameController : MonoBehaviour
         if((_currentLevel + 1) < _levels.Count)
         {
             _currentLevel++;
+            _currentLevelSO.currentLevelIndex = _currentLevel;
             _currentWave = 0;
             _currentXPAmount = 0;
             _dontSpawn = false;
@@ -117,6 +125,7 @@ public class GameController : MonoBehaviour
     {
         StopTime();
         _gameWinTrigger.Raise();
+        ResetCurrentLevelIndex();
     }
 
     private void StopTime()
@@ -127,6 +136,11 @@ public class GameController : MonoBehaviour
     private void RestartTime()
     {
         Time.timeScale = 1;
+    }
+
+    private void ResetCurrentLevelIndex()
+    {
+        _currentLevelSO.currentLevelIndex = 0;
     }
 }
 

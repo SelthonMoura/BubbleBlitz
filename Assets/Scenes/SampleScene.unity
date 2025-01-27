@@ -5426,6 +5426,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5677137737252799087, guid: c98dba0a5a9eaef4689a296e95d4d8b7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8084383295047969074, guid: c98dba0a5a9eaef4689a296e95d4d8b7, type: 3}
       propertyPath: m_Name
       value: Levels

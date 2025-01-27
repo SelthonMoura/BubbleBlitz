@@ -8657,7 +8657,10 @@ MonoBehaviour:
     event: {fileID: 11400000, guid: 4e601f052ce71ec49b5777e9c7fe334d, type: 2}
   _resumeTimeEvent:
     event: {fileID: 11400000, guid: e01ef46ffc7d31c4aad567ca1963e80e, type: 2}
+  _gameOverEvent:
+    event: {fileID: 11400000, guid: dcd084a41ebc6034d8160a833f9fc35c, type: 2}
   _gameWinTrigger: {fileID: 11400000, guid: c33bd55c7818592479dbed737a951266, type: 2}
+  _currentLevelSO: {fileID: 11400000, guid: 7b3f6741646ce0a458757687f5777a20, type: 2}
 --- !u!114 &7839065540238027792
 MonoBehaviour:
   m_ObjectHideFlags: 0
