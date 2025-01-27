@@ -57,6 +57,8 @@ public class PlayerHealth : MonoBehaviour
         if(_playerStats.currentHp <= 0)
         {
             _onGameOverTrigger.Raise();
+            _playerStats.ResetStats();
+            _playerStats.ResetScore();
         }
         else
         {

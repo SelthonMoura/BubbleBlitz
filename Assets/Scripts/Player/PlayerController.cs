@@ -29,8 +29,6 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        _playerStats.ResetStats();
-        _playerStats.ResetScore();
         _updatePlayerUI.Raise();
     }
 

@@ -433,12 +433,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerStats: {fileID: 11400000, guid: 019cbd2385bf69e4b881256ffb8d4f04, type: 2}
+  _itemPriceSO: {fileID: 0}
+  _gameOverEvent:
+    event: {fileID: 11400000, guid: dcd084a41ebc6034d8160a833f9fc35c, type: 2}
+  _gameWinEvent:
+    event: {fileID: 11400000, guid: c33bd55c7818592479dbed737a951266, type: 2}
   gameEvent: {fileID: 0}
   updateUI: {fileID: 11400000, guid: cadff5aed161acf4bb5a46b2e908d0c2, type: 2}
   eventRaiseID: 0
   itemImage: {fileID: 0}
   itemPrice: {fileID: 0}
-  currentPrice: 0
   inflation: 0
   _compraUnica: 0
   _button: {fileID: 4764186352116392624}
