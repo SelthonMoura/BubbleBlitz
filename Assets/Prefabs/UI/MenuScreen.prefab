@@ -434,6 +434,15 @@ MonoBehaviour:
   _creditsPanel: {fileID: 5985355288166488644}
   _exitPanel: {fileID: 7359795892239495535}
   _anim: {fileID: 8417400246584183749}
+  _itemPriceSOs:
+  - {fileID: 11400000, guid: 11bac701875412340891418f05a1172d, type: 2}
+  - {fileID: 11400000, guid: 50b979470ed57884f834a4d6421b614f, type: 2}
+  - {fileID: 11400000, guid: 5dd0268c0caa3bc44b7473fb70027ab3, type: 2}
+  - {fileID: 11400000, guid: b6c8e07f2ff7b8e4589fbff820b287f7, type: 2}
+  - {fileID: 11400000, guid: e263fbec6423b44459738cfc1d735cd4, type: 2}
+  - {fileID: 11400000, guid: 20fb6cfaf8ffe08489a3a55081b266fb, type: 2}
+  - {fileID: 11400000, guid: 321f6eaf2bfbe824db805868f3679b09, type: 2}
+  - {fileID: 11400000, guid: bb962e07d36040d4b8db7916e5323c20, type: 2}
 --- !u!95 &8417400246584183749
 Animator:
   serializedVersion: 5

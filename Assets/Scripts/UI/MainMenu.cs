@@ -10,10 +10,16 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _creditsPanel;
     [SerializeField] private GameObject _exitPanel;
     [SerializeField] private Animator _anim;
+    [SerializeField] private ItemPriceSO[] _itemPriceSOs;
 
     public void PlayGame()
     {
         SceneManager.LoadScene(_firstLevelScene);
+
+        for(int i = 0; i < _itemPriceSOs.Length; i++)
+        {
+            _itemPriceSOs[i].inflammedPrice = _itemPriceSOs[i].baseValue;
+        }
     }
 
     public void ShowCredits()
