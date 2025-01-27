@@ -39,32 +39,17 @@ public class GameController : MonoBehaviour
 
     private IEnumerator LevelLoop()
     {
-        if (_dontSpawn)
+        foreach (var spawn in _levels[_currentLevel].waves[_currentWave].spawns)
         {
-            yield return new WaitForSeconds(1f);
-            StartCoroutine(LevelLoop());
+            var bubblePrefab = _bubblePrefabs[(int)spawn.bubble];
+            var bubble = (Bubble)PoolManager.Instance.ReuseComponent(bubblePrefab, new Vector3(spawn.positionX * 13, 10, 0), Quaternion.identity);
+            bubble.SetSpawning(true);
+        }
+        yield return new WaitForSeconds(_levels[_currentLevel].waves[_currentWave].secondsToNext);
+        _currentWave++;
+        if (_currentWave >= _levels[_currentLevel].waves.Count)
             yield break;
-        }
-        else
-        {
-            foreach (var spawn in _levels[_currentLevel].waves[_currentWave].spawns)
-            {
-                var bubblePrefab = _bubblePrefabs[(int)spawn.bubble];
-                var bubble = (Bubble)PoolManager.Instance.ReuseComponent(bubblePrefab, new Vector3(spawn.positionX * 13, 10, 0), Quaternion.identity);
-                bubble.SetSpawning(true);
-            }
-            yield return new WaitForSeconds(_levels[_currentLevel].waves[_currentWave].secondsToNext);
-            if (_dontSpawn)
-            {
-                yield return new WaitForSeconds(1f);
-                StartCoroutine(LevelLoop());
-                yield break;
-            }
-            _currentWave++;
-            if (_currentWave >= _levels[_currentLevel].waves.Count)
-                _currentWave = 0;
-            StartCoroutine(LevelLoop());
-        }
+        StartCoroutine(LevelLoop());
     }
 
     private void OnDestroy()
@@ -88,13 +73,14 @@ public class GameController : MonoBehaviour
         _screenText.gameObject.SetActive(true);
         _dontSpawn = true;
 
+        StopCoroutine("LevelLoop");
+
         foreach (var bubble in FindObjectsOfType<Bubble>())
         {
             bubble.gameObject.SetActive(false);
         }
 
         yield return new WaitForSecondsRealtime(2f);
-
 
         _screenText.gameObject.SetActive(false);
         _levels[_currentLevel].level.SetActive(false);
@@ -108,6 +94,7 @@ public class GameController : MonoBehaviour
             _dontSpawn = false;
             _player.transform.position = _levels[_currentLevel].playerPosition.transform.position;
             _levels[_currentLevel].level.SetActive(true);
+            StartCoroutine(LevelLoop());
         }
         else
         {

@@ -2562,7 +2562,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: cdd88bbb97651294785af6b8cc56cb0d, type: 2}
     - target: {fileID: 371203561239382362, guid: 1cb5c32e636db0b448dcf7e839f2c5d1, type: 3}
       propertyPath: inflation
-      value: 300
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 371203561239382362, guid: 1cb5c32e636db0b448dcf7e839f2c5d1, type: 3}
       propertyPath: itemImage

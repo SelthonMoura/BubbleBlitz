@@ -6802,7 +6802,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4725601581952241765
 Transform:
   m_ObjectHideFlags: 0
@@ -8562,28 +8562,6 @@ MonoBehaviour:
   - {fileID: 2978882876746902928, guid: fc4276acd964162418aaba00b25d2f1a, type: 3}
   - {fileID: 2978882876746902928, guid: 2867f37ea45509942aa6f3ec8fd90b82, type: 3}
   _levels:
-  - level: {fileID: 859951771828297949}
-    playerPosition: {fileID: 8732969161558884437}
-    waves:
-    - spawns:
-      - bubble: 3
-        positionX: -0.75
-      - bubble: 3
-        positionX: 0.75
-      secondsToNext: 10
-    - spawns:
-      - bubble: 6
-        positionX: 0
-      - bubble: 6
-        positionX: 0
-      secondsToNext: 10
-    - spawns:
-      - bubble: 5
-        positionX: -0.2
-      - bubble: 5
-        positionX: 0.2
-      secondsToNext: 100
-    popsRequired: 42
   - level: {fileID: 5677137737252799087}
     playerPosition: {fileID: 4946873189896118765}
     waves:
@@ -8615,7 +8593,7 @@ MonoBehaviour:
       - bubble: 1
         positionX: 0.9
       secondsToNext: 50
-    popsRequired: 14
+    popsRequired: 13
   - level: {fileID: 8881600090719721243}
     playerPosition: {fileID: 3951168936141650878}
     waves:
@@ -8648,6 +8626,28 @@ MonoBehaviour:
         positionX: 0.2
       secondsToNext: 50
     popsRequired: 36
+  - level: {fileID: 859951771828297949}
+    playerPosition: {fileID: 8732969161558884437}
+    waves:
+    - spawns:
+      - bubble: 3
+        positionX: -0.75
+      - bubble: 3
+        positionX: 0.75
+      secondsToNext: 10
+    - spawns:
+      - bubble: 6
+        positionX: 0
+      - bubble: 6
+        positionX: 0
+      secondsToNext: 10
+    - spawns:
+      - bubble: 5
+        positionX: -0.2
+      - bubble: 5
+        positionX: 0.2
+      secondsToNext: 100
+    popsRequired: 42
   _screenText: {fileID: 0}
   _bubbleDeathEvent:
     event: {fileID: 11400000, guid: a9d568ff5a88fb242a22024cd4d38b23, type: 2}
