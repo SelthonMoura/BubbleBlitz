@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameEvent _playerTakeDamageTrigger;
     [SerializeField] private GameEvent _useBombEvent;
     [SerializeField] private GameEvent _updatePlayerUI;
+    [SerializeField] private GameEvent _pauseGame;
     [SerializeField] private GameEventListener<CustomEvent<int>> _buyItemEvent;
     [SerializeField] private GameEventListener<CustomEvent<int>> _playerScoredEvent;
     [SerializeField] private LayerMask _groundLayer;
@@ -68,6 +69,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape))
+            _pauseGame.Raise();
+
         var inputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         CheckGrounded();
