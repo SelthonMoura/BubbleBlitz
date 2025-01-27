@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
 
         for(int i = 0; i < _itemPriceSOs.Length; i++)
         {
-            _itemPriceSOs[i].inflammedPrice = _itemPriceSOs[i].baseValue;
+            _itemPriceSOs[i].ResetInflation();
         }
     }
 
